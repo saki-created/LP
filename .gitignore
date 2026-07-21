@@ -1,0 +1,26 @@
+# OS / OneDrive
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+.DS_Store
+
+# エディタ
+.vscode/
+.idea/
+*.swp
+
+# 依存関係・ビルド成果物
+node_modules/
+dist/
+build/
+.cache/
+
+# 環境変数
+.env
+.env.local
+*.local
+
+# ログ
+*.log
+npm-debug.log*

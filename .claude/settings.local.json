@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(git --version; \\(Get-Command git\\).Source)",
+      "PowerShell(git init -b main)"
+    ]
+  }
+}
