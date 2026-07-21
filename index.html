@@ -3,306 +3,287 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>よあけラボ｜4週間のオンライン睡眠改善プログラム（デモLP）</title>
-<meta name="description" content="サンプルLPです。架空のオンライン睡眠改善プログラム「よあけラボ」の想定ランディングページ。">
+<title>火曜の朝に書いています｜note導線用サンプルLP</title>
+<meta name="description" content="サンプルLPです。架空の書き手「ひらの あお」のnote導線用ランディングページ。">
 <meta name="robots" content="noindex">
 <!-- ARTIFACT:START -->
 <style>
-  /* ---------- tokens : 夜 (default) ---------- */
+  /* ================= tokens : 紙 (default) ================= */
   :root {
-    --ground:   #0D1220;
-    --surface:  #161E31;
-    --surface2: #1D2740;
-    --line:     #2A3550;
-    --text:     #DDE3EF;
-    --muted:    #8A97B4;
-    --lamp:     #EFA95C;
-    --lamp-dim: #8A5F26;
-    --moon:     #7FA8D9;
-    --glow:     rgba(239,169,92,.16);
-    --shadow:   0 18px 44px -22px rgba(0,0,0,.85);
+    --paper:    #E9E9E2;
+    --surface:  #F5F5F0;
+    --ink:      #15224E;
+    --text:     #15224E;
+    --muted:    #5C6480;
+    --pink:     #D62B52;
+    --pink-flat:#E8365F;
+    --line:     #C2C3BC;
+    --shadow:   6px 6px 0 rgba(21,34,78,.10);
   }
-  @media (prefers-color-scheme: light) {
+  @media (prefers-color-scheme: dark) {
     :root {
-      --ground:   #E7E9F0;
-      --surface:  #F4F6FA;
-      --surface2: #FFFFFF;
-      --line:     #C6CCDC;
-      --text:     #141A2A;
-      --muted:    #5A6480;
-      --lamp:     #A9631E;
-      --lamp-dim: #E0BE93;
-      --moon:     #3D6699;
-      --glow:     rgba(169,99,30,.10);
-      --shadow:   0 18px 40px -26px rgba(20,26,42,.45);
+      --paper:    #101733;
+      --surface:  #182142;
+      --ink:      #EBEBE3;
+      --text:     #EBEBE3;
+      --muted:    #98A0BE;
+      --pink:     #FF6E8D;
+      --pink-flat:#FF4F79;
+      --line:     #2C3861;
+      --shadow:   6px 6px 0 rgba(0,0,0,.35);
     }
   }
-  :root[data-theme="dark"] {
-    --ground:#0D1220; --surface:#161E31; --surface2:#1D2740; --line:#2A3550;
-    --text:#DDE3EF; --muted:#8A97B4; --lamp:#EFA95C; --lamp-dim:#8A5F26;
-    --moon:#7FA8D9; --glow:rgba(239,169,92,.16); --shadow:0 18px 44px -22px rgba(0,0,0,.85);
-  }
   :root[data-theme="light"] {
-    --ground:#E7E9F0; --surface:#F4F6FA; --surface2:#FFFFFF; --line:#C6CCDC;
-    --text:#141A2A; --muted:#5A6480; --lamp:#A9631E; --lamp-dim:#E0BE93;
-    --moon:#3D6699; --glow:rgba(169,99,30,.10); --shadow:0 18px 40px -26px rgba(20,26,42,.45);
+    --paper:#E9E9E2; --surface:#F5F5F0; --ink:#15224E; --text:#15224E;
+    --muted:#5C6480; --pink:#D62B52; --pink-flat:#E8365F; --line:#C2C3BC;
+    --shadow:6px 6px 0 rgba(21,34,78,.10);
+  }
+  :root[data-theme="dark"] {
+    --paper:#101733; --surface:#182142; --ink:#EBEBE3; --text:#EBEBE3;
+    --muted:#98A0BE; --pink:#FF6E8D; --pink-flat:#FF4F79; --line:#2C3861;
+    --shadow:6px 6px 0 rgba(0,0,0,.35);
   }
 
-  /* ---------- type roles ---------- */
   :root {
-    --mincho: "Hiragino Mincho ProN", "Yu Mincho", "YuMincho", "Noto Serif JP", "MS PMincho", serif;
-    --gothic: "Hiragino Kaku Gothic ProN", "Yu Gothic UI", "Yu Gothic", "Noto Sans JP", Meiryo, sans-serif;
-    --mono:   ui-monospace, "SF Mono", SFMono-Regular, Consolas, "Courier New", monospace;
-    --wrap: 1080px;
+    --sans: "Hiragino Kaku Gothic ProN", "Yu Gothic UI", "Yu Gothic", "Noto Sans JP", Meiryo, sans-serif;
+    --serif: "Hiragino Mincho ProN", "Yu Mincho", "YuMincho", "Noto Serif JP", "MS PMincho", serif;
+    --mono: ui-monospace, "SF Mono", SFMono-Regular, Consolas, "Courier New", monospace;
+    --wrap: 1040px;
   }
 
   * { box-sizing: border-box; }
 
   .page {
-    background: var(--ground);
+    position: relative;
+    background: var(--paper);
     color: var(--text);
-    font-family: var(--gothic);
+    font-family: var(--sans);
     font-size: 16px;
     line-height: 1.9;
-    -webkit-font-smoothing: antialiased;
     letter-spacing: .02em;
+    -webkit-font-smoothing: antialiased;
     overflow-x: hidden;
+    padding-bottom: 86px; /* 下部固定CTAの逃げ */
+  }
+  @media (min-width: 760px) { .page { padding-bottom: 0; } }
+
+  /* 紙の粒子 */
+  .grain {
+    position: fixed; inset: 0; z-index: 60; pointer-events: none; opacity: .05;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   }
 
   .shell { width: 100%; max-width: var(--wrap); margin-inline: auto; padding-inline: 22px; }
 
-  /* ---------- demo bar ---------- */
+  /* ================= demo bar ================= */
   .demobar {
-    background: var(--lamp);
-    color: #12172A;
-    font-family: var(--mono);
-    font-size: 11.5px;
-    letter-spacing: .1em;
-    text-align: center;
-    padding: 7px 14px;
-    line-height: 1.6;
+    background: var(--ink); color: var(--paper);
+    font-family: var(--mono); font-size: 11.5px; letter-spacing: .1em;
+    text-align: center; padding: 7px 14px; line-height: 1.6;
   }
 
-  /* ---------- header ---------- */
-  .top {
-    position: sticky; top: 0; z-index: 40;
-    background: color-mix(in srgb, var(--ground) 88%, transparent);
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid var(--line);
+  /* ================= header ================= */
+  .top { border-bottom: 2px solid var(--ink); }
+  .top-in { display: flex; align-items: center; gap: 16px; height: 60px; }
+  .mark {
+    font-family: var(--mono); font-size: 12px; letter-spacing: .2em;
+    border: 2px solid var(--ink); padding: 4px 10px; margin-right: auto;
   }
-  .top-in { display: flex; align-items: center; gap: 18px; height: 62px; }
-  .brand { font-family: var(--mincho); font-size: 19px; letter-spacing: .18em; margin-right: auto; }
-  .brand span { color: var(--lamp); }
-  .top-nav { display: none; gap: 26px; font-size: 13.5px; color: var(--muted); }
-  .top-nav a { color: inherit; text-decoration: none; padding-block: 4px; border-bottom: 1px solid transparent; }
-  .top-nav a:hover { color: var(--text); border-bottom-color: var(--lamp); }
-  @media (min-width: 860px) { .top-nav { display: flex; } }
-
+  .top-link {
+    font-size: 13.5px; color: var(--muted); text-decoration: none;
+    border-bottom: 1px solid transparent;
+  }
+  .top-link:hover { color: var(--pink); border-bottom-color: var(--pink); }
   .themebtn {
-    font-family: var(--mono); font-size: 11px; letter-spacing: .14em;
+    font-family: var(--mono); font-size: 11px; letter-spacing: .12em;
     background: transparent; color: var(--muted);
-    border: 1px solid var(--line); border-radius: 999px;
-    padding: 6px 13px; cursor: pointer;
+    border: 1px solid var(--line); padding: 6px 12px; cursor: pointer;
   }
-  .themebtn:hover { color: var(--lamp); border-color: var(--lamp-dim); }
+  .themebtn:hover { color: var(--pink); border-color: var(--pink); }
 
-  /* ---------- shared section rhythm ---------- */
-  .band { padding-block: clamp(64px, 9vw, 116px); }
+  /* ================= shared ================= */
+  .band { padding-block: clamp(58px, 8vw, 100px); }
   .band + .band { border-top: 1px solid var(--line); }
   .eyebrow {
     font-family: var(--mono); font-size: 11.5px; letter-spacing: .22em;
-    color: var(--lamp); text-transform: uppercase; margin: 0 0 14px;
+    color: var(--pink); margin: 0 0 14px; text-transform: uppercase;
   }
   .h2 {
-    font-family: var(--mincho); font-weight: 500;
-    font-size: clamp(25px, 4.1vw, 38px);
-    line-height: 1.55; letter-spacing: .07em;
-    text-wrap: balance; margin: 0 0 18px;
+    font-family: var(--sans); font-weight: 800;
+    font-size: clamp(24px, 3.9vw, 36px);
+    line-height: 1.5; letter-spacing: .02em;
+    margin: 0 0 16px; text-wrap: balance;
   }
-  .lede { color: var(--muted); max-width: 62ch; margin: 0; font-size: 15.5px; }
+  .lede { color: var(--muted); max-width: 60ch; margin: 0; font-size: 15.5px; }
 
-  /* ---------- hero ---------- */
-  .hero { position: relative; padding-block: clamp(56px, 8vw, 104px) clamp(40px, 6vw, 72px); }
-  .hero::before {
-    content: ""; position: absolute; inset: -30% 0 auto -10%;
-    height: 620px; pointer-events: none;
-    background: radial-gradient(48% 42% at 22% 46%, var(--glow), transparent 70%);
-  }
-  .hero-in { position: relative; display: grid; gap: clamp(38px, 5vw, 56px); }
-  @media (min-width: 960px) { .hero-in { grid-template-columns: minmax(0,.95fr) minmax(0,1.05fr); align-items: center; } }
+  a { color: var(--pink); }
+
+  /* ================= hero ================= */
+  .hero { padding-block: clamp(50px, 7vw, 88px) clamp(44px, 6vw, 76px); }
+  .hero-in { display: grid; gap: clamp(36px, 5vw, 54px); align-items: start; }
+  @media (min-width: 900px) { .hero-in { grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr); } }
 
   .h1 {
-    font-family: var(--mincho); font-weight: 500;
-    font-size: clamp(31px, 5.6vw, 54px);
-    line-height: 1.5; letter-spacing: .06em;
-    margin: 0 0 22px; text-wrap: balance;
+    font-family: var(--sans); font-weight: 800;
+    font-size: clamp(32px, 6.4vw, 60px);
+    line-height: 1.38; letter-spacing: -.005em;
+    margin: 0 0 24px; text-wrap: balance;
+    text-shadow: 3px 3px 0 var(--pink-flat); /* 2色刷りの版ズレ */
   }
-  .h1 em { font-style: normal; color: var(--lamp); }
-  .hero-sub { color: var(--muted); max-width: 40ch; margin: 0 0 30px; }
+  .hero-sub { color: var(--muted); max-width: 38ch; margin: 0 0 28px; font-size: 15.5px; }
 
-  .cta-row { display: flex; flex-wrap: wrap; gap: 13px; align-items: center; }
+  .cta-row { display: flex; flex-wrap: wrap; gap: 12px; }
   .btn {
     display: inline-flex; align-items: center; gap: 9px;
-    font-family: var(--gothic); font-size: 14.5px; letter-spacing: .06em;
-    padding: 14px 26px; border-radius: 2px; text-decoration: none;
-    border: 1px solid transparent; cursor: pointer; transition: transform .18s ease, background .18s ease, color .18s ease;
+    font-family: var(--sans); font-size: 14.5px; font-weight: 700; letter-spacing: .04em;
+    padding: 14px 24px; text-decoration: none; cursor: pointer;
+    border: 2px solid var(--ink); background: transparent; color: var(--ink);
+    transition: transform .16s ease, box-shadow .16s ease;
   }
-  .btn-main { background: var(--lamp); color: #12172A; font-weight: 700; }
-  .btn-main:hover { transform: translateY(-2px); }
-  .btn-ghost { border-color: var(--line); color: var(--text); background: transparent; }
-  .btn-ghost:hover { border-color: var(--lamp); color: var(--lamp); }
-  .btn:focus-visible, a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, summary:focus-visible {
-    outline: 2px solid var(--lamp); outline-offset: 3px;
+  .btn-main { background: var(--pink-flat); border-color: var(--pink-flat); color: #FFF; box-shadow: var(--shadow); }
+  .btn-main:hover { transform: translate(-3px, -3px); box-shadow: 9px 9px 0 rgba(21,34,78,.14); }
+  .btn-ghost:hover { transform: translate(-2px, -2px); box-shadow: 4px 4px 0 var(--line); }
+  .btn:focus-visible, a:focus-visible, button:focus-visible, summary:focus-visible {
+    outline: 2px solid var(--pink); outline-offset: 3px;
   }
-  .cta-note { font-size: 12.5px; color: var(--muted); margin: 14px 0 0; }
 
-  /* ---------- hypnogram ---------- */
-  .chart {
+  /* 書き手カード */
+  .who {
+    background: var(--surface); border: 2px solid var(--ink);
+    padding: 24px 22px; display: grid; gap: 14px; box-shadow: var(--shadow);
+  }
+  .who-top { display: flex; align-items: center; gap: 14px; }
+  .avatar {
+    width: 56px; height: 56px; flex: none; border-radius: 50%;
+    background: var(--pink-flat); color: #FFF;
+    display: grid; place-items: center;
+    font-family: var(--serif); font-size: 22px; letter-spacing: .04em;
+  }
+  .who-name { font-weight: 800; font-size: 17px; line-height: 1.5; }
+  .who-handle { font-family: var(--mono); font-size: 12px; color: var(--muted); letter-spacing: .04em; }
+  .who p { margin: 0; font-size: 14px; color: var(--muted); }
+  .who-nums { display: flex; gap: 22px; border-top: 1px solid var(--line); padding-top: 14px; }
+  .who-nums div { display: grid; }
+  .who-nums b { font-family: var(--mono); font-variant-numeric: tabular-nums; font-size: 19px; letter-spacing: 0; }
+  .who-nums span { font-size: 11.5px; color: var(--muted); }
+
+  /* ================= themes ================= */
+  .topics { display: grid; gap: 1px; background: var(--line); border: 2px solid var(--ink); margin-top: 36px; }
+  @media (min-width: 780px) { .topics { grid-template-columns: repeat(3, 1fr); } }
+  .topic { background: var(--paper); padding: 26px 22px; display: grid; gap: 9px; align-content: start; }
+  .topic-no { font-family: var(--mono); font-size: 11px; letter-spacing: .16em; color: var(--pink); }
+  .topic h3 { font-size: 18px; font-weight: 800; margin: 0; letter-spacing: .02em; }
+  .topic p { margin: 0; color: var(--muted); font-size: 14px; }
+
+  /* ================= articles ================= */
+  .posts { display: grid; gap: 18px; margin-top: 36px; }
+  @media (min-width: 720px) { .posts { grid-template-columns: 1fr 1fr; } }
+  .post {
+    display: grid; gap: 10px; align-content: start;
     background: var(--surface); border: 1px solid var(--line);
-    border-radius: 3px; padding: 20px 18px 16px; box-shadow: var(--shadow);
+    padding: 22px 20px; text-decoration: none; color: inherit;
+    transition: transform .16s ease, box-shadow .16s ease, border-color .16s ease;
   }
-  .chart-head { display: flex; flex-wrap: wrap; gap: 8px 18px; align-items: baseline; margin-bottom: 12px; }
-  .chart-title { font-size: 13px; letter-spacing: .08em; margin: 0; margin-right: auto; }
-  .legend { display: flex; gap: 16px; font-family: var(--mono); font-size: 11px; letter-spacing: .06em; color: var(--muted); }
-  .legend i { display: inline-block; width: 16px; height: 0; border-top-width: 2px; margin-right: 7px; vertical-align: middle; }
-  .lg-before i { border-top-style: dashed; border-top-color: var(--moon); }
-  .lg-after i  { border-top-style: solid;  border-top-color: var(--lamp); }
-  .canvas-wrap { position: relative; width: 100%; height: 236px; }
-  .canvas-wrap canvas { width: 100%; height: 100%; display: block; }
-  .chart-foot { font-size: 11.5px; color: var(--muted); margin: 10px 0 0; line-height: 1.7; }
-
-  .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; margin-top: 26px; background: var(--line); border: 1px solid var(--line); }
-  .stat { background: var(--ground); padding: 16px 14px; }
-  .stat b { display: block; font-family: var(--mono); font-size: clamp(20px, 3.4vw, 27px); font-variant-numeric: tabular-nums; color: var(--lamp); letter-spacing: 0; line-height: 1.3; }
-  .stat span { display: block; font-size: 11.5px; color: var(--muted); line-height: 1.6; margin-top: 4px; }
-
-  /* ---------- pains ---------- */
-  .pains { display: grid; gap: 1px; background: var(--line); border: 1px solid var(--line); margin-top: 38px; }
-  @media (min-width: 700px) { .pains { grid-template-columns: 1fr 1fr; } }
-  .pain { background: var(--ground); padding: 26px 24px; display: grid; gap: 8px; }
-  .pain h3 { font-family: var(--mincho); font-size: 18px; font-weight: 500; letter-spacing: .05em; margin: 0; }
-  .pain p { margin: 0; color: var(--muted); font-size: 14.5px; }
-  .pain-mark { font-family: var(--mono); font-size: 11px; color: var(--lamp); letter-spacing: .12em; }
-
-  /* ---------- pillars ---------- */
-  .pillars { display: grid; gap: 26px; margin-top: 40px; }
-  @media (min-width: 820px) { .pillars { grid-template-columns: repeat(3, 1fr); gap: 30px; } }
-  .pillar { display: grid; gap: 12px; align-content: start; padding-top: 22px; border-top: 2px solid var(--lamp); }
-  .pillar h3 { font-family: var(--mincho); font-size: 20px; font-weight: 500; letter-spacing: .06em; margin: 0; }
-  .pillar p { margin: 0; color: var(--muted); font-size: 14.5px; }
-
-  /* ---------- night blueprint (real timeline) ---------- */
-  .night { display: grid; gap: 0; margin-top: 42px; }
-  .slot {
-    display: grid; grid-template-columns: 76px 1fr; gap: 20px;
-    padding: 22px 0; border-top: 1px solid var(--line);
+  .post:hover { transform: translate(-3px, -3px); box-shadow: var(--shadow); border-color: var(--ink); }
+  .post h3 { font-size: 17.5px; font-weight: 800; margin: 0; line-height: 1.6; letter-spacing: .01em; }
+  .post p { margin: 0; font-size: 13.5px; color: var(--muted); }
+  .post-meta {
+    display: flex; flex-wrap: wrap; gap: 14px;
+    font-family: var(--mono); font-size: 11.5px; font-variant-numeric: tabular-nums;
+    color: var(--muted); letter-spacing: .02em;
+    border-top: 1px solid var(--line); padding-top: 10px;
   }
-  .slot:last-child { border-bottom: 1px solid var(--line); }
-  .slot-time {
-    font-family: var(--mono); font-size: 13px; font-variant-numeric: tabular-nums;
-    color: var(--lamp); letter-spacing: .02em; padding-top: 3px;
-    position: relative;
-  }
-  .slot-time::after {
-    content: ""; position: absolute; right: -10px; top: 12px;
-    width: 5px; height: 5px; border-radius: 50%; background: var(--lamp);
-  }
-  .slot-body h3 { font-family: var(--mincho); font-size: 18px; font-weight: 500; letter-spacing: .05em; margin: 0 0 6px; }
-  .slot-body p { margin: 0; color: var(--muted); font-size: 14.5px; }
-  @media (max-width: 560px) { .slot { grid-template-columns: 1fr; gap: 6px; } .slot-time::after { display: none; } }
+  .post-meta .likes { color: var(--pink); }
 
-  /* ---------- weeks ---------- */
-  .weeks { display: grid; gap: 1px; background: var(--line); border: 1px solid var(--line); margin-top: 40px; }
-  @media (min-width: 780px) { .weeks { grid-template-columns: repeat(4, 1fr); } }
-  .week { background: var(--ground); padding: 24px 20px; display: grid; gap: 9px; align-content: start; }
-  .week-no { font-family: var(--mono); font-size: 11.5px; letter-spacing: .16em; color: var(--muted); }
-  .week h3 { font-family: var(--mincho); font-size: 17px; font-weight: 500; letter-spacing: .05em; margin: 0; }
-  .week p { margin: 0; color: var(--muted); font-size: 13.5px; line-height: 1.85; }
-
-  /* ---------- pricing ---------- */
-  .plans { display: grid; gap: 22px; margin-top: 40px; }
-  @media (min-width: 800px) { .plans { grid-template-columns: 1fr 1fr; gap: 26px; } }
-  .plan { background: var(--surface); border: 1px solid var(--line); border-radius: 3px; padding: 30px 26px; display: grid; gap: 16px; align-content: start; }
-  .plan-pick { border-color: var(--lamp); box-shadow: var(--shadow); position: relative; }
-  .plan-tag {
-    position: absolute; top: -11px; left: 26px;
-    background: var(--lamp); color: #12172A;
-    font-family: var(--mono); font-size: 10.5px; letter-spacing: .14em;
-    padding: 3px 11px;
+  /* ================= excerpt ================= */
+  .excerpt {
+    margin-top: 34px; border-left: 3px solid var(--pink-flat);
+    padding: 6px 0 6px 26px; max-width: 34em;
   }
-  .plan h3 { font-family: var(--mincho); font-size: 21px; font-weight: 500; letter-spacing: .07em; margin: 0; }
-  .price { font-family: var(--mono); font-variant-numeric: tabular-nums; font-size: 34px; color: var(--text); line-height: 1.2; }
-  .price small { font-family: var(--gothic); font-size: 13px; color: var(--muted); margin-left: 6px; letter-spacing: .04em; }
-  .plan ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 9px; font-size: 14px; color: var(--muted); }
-  .plan li { display: grid; grid-template-columns: 16px 1fr; gap: 10px; }
-  .plan li::before { content: "—"; color: var(--lamp); }
+  .excerpt p {
+    font-family: var(--serif); font-size: clamp(16px, 2vw, 18.5px);
+    line-height: 2.15; letter-spacing: .05em; margin: 0 0 1.4em;
+  }
+  .excerpt p:last-of-type { margin-bottom: 0; }
+  .excerpt cite { display: block; margin-top: 20px; font-style: normal; font-family: var(--mono); font-size: 11.5px; color: var(--muted); letter-spacing: .06em; }
 
-  /* ---------- voices ---------- */
-  .voices { display: grid; gap: 22px; margin-top: 38px; }
+  /* ================= rhythm ================= */
+  .rhythm { margin-top: 34px; border: 2px solid var(--ink); }
+  .rhythm-row { display: grid; grid-template-columns: 132px 1fr; gap: 18px; padding: 16px 20px; }
+  .rhythm-row + .rhythm-row { border-top: 1px solid var(--line); }
+  .rhythm-row dt { font-family: var(--mono); font-size: 12px; letter-spacing: .12em; color: var(--muted); margin: 0; padding-top: 2px; }
+  .rhythm-row dd { margin: 0; font-size: 15px; }
+  .rhythm-row dd small { display: block; font-size: 13px; color: var(--muted); }
+  @media (max-width: 560px) { .rhythm-row { grid-template-columns: 1fr; gap: 4px; } }
+
+  /* ================= voices ================= */
+  .voices { display: grid; gap: 18px; margin-top: 34px; }
   @media (min-width: 820px) { .voices { grid-template-columns: repeat(3, 1fr); } }
-  .voice { background: var(--surface); border: 1px solid var(--line); padding: 24px 22px; display: grid; gap: 14px; align-content: start; }
-  .voice blockquote { margin: 0; font-family: var(--mincho); font-size: 16.5px; line-height: 1.95; letter-spacing: .04em; }
-  .voice footer { font-size: 12.5px; color: var(--muted); font-family: var(--mono); letter-spacing: .04em; }
+  .voice { border: 1px solid var(--line); background: var(--surface); padding: 22px 20px; display: grid; gap: 12px; align-content: start; }
+  .voice blockquote { margin: 0; font-family: var(--serif); font-size: 15.5px; line-height: 2; letter-spacing: .04em; }
+  .voice footer { font-family: var(--mono); font-size: 11.5px; color: var(--muted); letter-spacing: .04em; }
 
-  /* ---------- faq ---------- */
-  .faq { margin-top: 34px; border-top: 1px solid var(--line); }
-  .faq details { border-bottom: 1px solid var(--line); }
-  .faq summary {
-    cursor: pointer; list-style: none; padding: 19px 40px 19px 0; position: relative;
-    font-size: 15.5px; letter-spacing: .04em;
+  /* ================= final cta ================= */
+  .final { background: var(--ink); color: var(--paper); }
+  .final .h2 { color: var(--paper); }
+  .final .eyebrow { color: var(--pink-flat); }
+  .final p.lede { color: color-mix(in srgb, var(--paper) 72%, transparent); }
+  .final .btn-ghost { border-color: var(--paper); color: var(--paper); }
+  .final .btn-ghost:hover { box-shadow: 4px 4px 0 rgba(255,255,255,.25); }
+  .final-cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
+  .final-note { font-size: 12.5px; margin: 18px 0 0; color: color-mix(in srgb, var(--paper) 62%, transparent); }
+
+  /* ================= sticky mobile cta ================= */
+  .dock {
+    position: fixed; left: 0; right: 0; bottom: 0; z-index: 50;
+    background: var(--surface); border-top: 2px solid var(--ink);
+    padding: 10px 16px; display: flex; align-items: center; gap: 12px;
+    transform: translateY(110%); transition: transform .3s ease;
   }
-  .faq summary::-webkit-details-marker { display: none; }
-  .faq summary::after {
-    content: "+"; position: absolute; right: 6px; top: 17px;
-    font-family: var(--mono); font-size: 19px; color: var(--lamp); transition: transform .2s ease;
+  .dock.up { transform: none; }
+  .dock-txt { font-size: 12.5px; line-height: 1.5; color: var(--muted); margin: 0; }
+  .dock .btn { margin-left: auto; padding: 11px 18px; font-size: 13.5px; flex: none; }
+  @media (min-width: 760px) { .dock { display: none; } }
+
+  /* ================= footer ================= */
+  .foot { border-top: 1px solid var(--line); padding-block: 36px; color: var(--muted); font-size: 12.5px; }
+  .foot-in { display: grid; gap: 9px; }
+  .foot b { font-size: 14px; color: var(--text); }
+
+  /* ================= toast ================= */
+  .toast {
+    position: fixed; left: 50%; bottom: 96px; transform: translate(-50%, 14px);
+    background: var(--ink); color: var(--paper);
+    font-size: 13px; padding: 11px 18px; z-index: 70;
+    opacity: 0; pointer-events: none; transition: opacity .25s ease, transform .25s ease;
+    max-width: calc(100% - 32px); text-align: center;
   }
-  .faq details[open] summary::after { content: "−"; }
-  .faq p { margin: 0 0 20px; color: var(--muted); font-size: 14.5px; max-width: 68ch; }
+  .toast.on { opacity: 1; transform: translate(-50%, 0); }
 
-  /* ---------- form ---------- */
-  .apply { background: var(--surface); border: 1px solid var(--line); padding: clamp(28px, 4vw, 44px); margin-top: 38px; border-radius: 3px; }
-  .form { display: grid; gap: 18px; max-width: 520px; margin-top: 26px; }
-  .field { display: grid; gap: 7px; }
-  .field label { font-size: 12.5px; letter-spacing: .1em; color: var(--muted); font-family: var(--mono); }
-  .field input, .field select {
-    font-family: var(--gothic); font-size: 15px; color: var(--text);
-    background: var(--ground); border: 1px solid var(--line); border-radius: 2px;
-    padding: 12px 13px; width: 100%;
-  }
-  .form-msg { font-size: 13.5px; color: var(--lamp); min-height: 1.4em; margin: 0; }
-
-  /* ---------- footer ---------- */
-  .foot { border-top: 1px solid var(--line); padding-block: 40px; color: var(--muted); font-size: 12.5px; }
-  .foot-in { display: grid; gap: 10px; }
-  .foot b { font-family: var(--mincho); font-size: 16px; letter-spacing: .16em; color: var(--text); font-weight: 500; }
-
-  /* ---------- reveal ---------- */
-  .rise { opacity: 0; transform: translateY(16px); transition: opacity .7s ease, transform .7s ease; }
+  /* ================= reveal ================= */
+  .rise { opacity: 0; transform: translateY(14px); transition: opacity .6s ease, transform .6s ease; }
   .rise.seen { opacity: 1; transform: none; }
   @media (prefers-reduced-motion: reduce) {
     .rise { opacity: 1; transform: none; transition: none; }
-    .btn-main:hover { transform: none; }
-    * { scroll-behavior: auto !important; }
+    .btn:hover, .post:hover { transform: none; }
+    .dock { transition: none; }
   }
   html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 </style>
 </head>
 <body>
 <div class="page">
+  <div class="grain" aria-hidden="true"></div>
 
-  <div class="demobar">DEMO ─ 架空のサービスのサンプルLPです。企業・数値・体験談はすべて実在しません。</div>
+  <div class="demobar">DEMO ─ 架空の書き手によるサンプルLPです。人物・記事・数値はすべて実在せず、リンク先もありません。</div>
 
   <header class="top">
     <div class="shell top-in">
-      <div class="brand">よあけ<span>ラボ</span></div>
-      <nav class="top-nav">
-        <a href="#pains">悩み</a>
-        <a href="#night">夜の設計図</a>
-        <a href="#weeks">進め方</a>
-        <a href="#price">料金</a>
-        <a href="#faq">よくある質問</a>
-      </nav>
-      <button class="themebtn" id="themebtn" type="button">朝にする</button>
+      <div class="mark">TUE 06:00</div>
+      <a class="top-link" href="#posts">記事</a>
+      <a class="top-link" href="#rhythm">更新のリズム</a>
+      <button class="themebtn" id="themebtn" type="button">夜にする</button>
     </div>
   </header>
 
@@ -312,315 +293,179 @@
     <section class="hero">
       <div class="shell hero-in">
         <div>
-          <p class="eyebrow">online sleep program / 4 weeks</p>
-          <h1 class="h1">眠れないのは、<br><em>意志の弱さ</em>ではありません。</h1>
-          <p class="hero-sub">睡眠改善トレーナーが4週間、あなたの夜の過ごし方を一緒に設計しなおすオンラインプログラムです。通院も、サプリも、根性論もありません。</p>
+          <p class="eyebrow">note / essay</p>
+          <h1 class="h1">書きたいけれど、<br>時間がない人へ。</h1>
+          <p class="hero-sub">平日は会社員、火曜の朝だけ物書き。働きながら6年間、note に書きつづけてきた記録です。毎週火曜6時、更新しています。</p>
           <div class="cta-row">
-            <a class="btn btn-main" href="#apply">無料の睡眠チェックを受ける</a>
-            <a class="btn btn-ghost" href="#night">夜の設計図を見る</a>
+            <a class="btn btn-main" href="#" data-demo>note を読む</a>
+            <a class="btn btn-ghost" href="#" data-demo>フォローする</a>
           </div>
-          <p class="cta-note">所要7分・スマホ完結／その場で結果が出ます</p>
         </div>
 
-        <div class="chart">
-          <div class="chart-head">
-            <p class="chart-title">ある参加者の睡眠ステージ（イメージ図）</p>
-            <div class="legend">
-              <span class="lg-before"><i></i>開始前</span>
-              <span class="lg-after"><i></i>4週間後</span>
+        <div class="who">
+          <div class="who-top">
+            <div class="avatar" aria-hidden="true">あ</div>
+            <div>
+              <div class="who-name">ひらの あお</div>
+              <div class="who-handle">@hirano_ao</div>
             </div>
           </div>
-          <div class="canvas-wrap"><canvas id="hypno" aria-label="開始前と4週間後の睡眠ステージを比較したイメージ図。4週間後は中途覚醒が減り、深い睡眠が前半にまとまっている。" role="img"></canvas></div>
-          <p class="chart-foot">上ほど浅く、下ほど深い眠り。開始前は夜中に4回浮上していた眠りが、4週間後には前半に深い眠りがまとまっています。</p>
-        </div>
-      </div>
-
-      <div class="shell">
-        <div class="stats rise">
-          <div class="stat"><b>−32<span style="font-size:.55em">分</span></b><span>寝つくまでの平均時間</span></div>
-          <div class="stat"><b>2.4→0.8</b><span>1晩の中途覚醒 平均回数</span></div>
-          <div class="stat"><b>91<span style="font-size:.55em">%</span></b><span>4週間の完走率</span></div>
-        </div>
-        <p class="chart-foot">※デモ用の架空の数値です。</p>
-      </div>
-    </section>
-
-    <!-- PAINS -->
-    <section class="band" id="pains">
-      <div class="shell">
-        <p class="eyebrow rise">before</p>
-        <h2 class="h2 rise">こんな夜を、<br>何年も繰り返していませんか。</h2>
-        <p class="lede rise">眠りの悩みは「気合い」でも「早く布団に入ること」でも解けません。ほとんどの場合、原因は夜ではなく、その手前の時間にあります。</p>
-
-        <div class="pains rise">
-          <div class="pain">
-            <span class="pain-mark">01</span>
-            <h3>布団の中で、頭だけが冴えていく</h3>
-            <p>疲れているのに寝つけない。時計を見るたび「あと何時間眠れるか」を数えてしまう。</p>
-          </div>
-          <div class="pain">
-            <span class="pain-mark">02</span>
-            <h3>3時に目が覚めて、そこから戻れない</h3>
-            <p>眠れた気がしないまま朝を迎え、日中はコーヒーの本数だけが増えていく。</p>
-          </div>
-          <div class="pain">
-            <span class="pain-mark">03</span>
-            <h3>休日に寝だめして、月曜がいちばんつらい</h3>
-            <p>土日の朝寝坊で体内時計が後ろにずれ、日曜の夜がまた眠れなくなる。</p>
-          </div>
-          <div class="pain">
-            <span class="pain-mark">04</span>
-            <h3>調べ尽くしたが、続かなかった</h3>
-            <p>アプリも枕もサプリも試した。何が効いたのか分からないまま、また元に戻る。</p>
+          <p>会社員をしながら、「働きながら書く」ことについて書いています。文章の教室に通ったことはありません。続け方だけを、6年かけて覚えました。</p>
+          <div class="who-nums">
+            <div><b>287</b><span>記事</span></div>
+            <div><b>8,412</b><span>フォロワー</span></div>
+            <div><b>6</b><span>年目</span></div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- PILLARS -->
+    <!-- TOPICS -->
     <section class="band">
       <div class="shell">
-        <p class="eyebrow rise">what we do</p>
-        <h2 class="h2 rise">よあけラボがすること</h2>
-        <p class="lede rise">やることは3つだけです。夜を増やすのではなく、いまある夜の使い方を組み替えます。</p>
+        <p class="eyebrow rise">topics</p>
+        <h2 class="h2 rise">書いているのは、この3つだけです。</h2>
+        <p class="lede rise">読む前に、合うかどうかが分かるように。6年ぶんの記事は、ほぼこの3つに収まります。</p>
 
-        <div class="pillars">
-          <div class="pillar rise">
-            <h3>まず、測る</h3>
-            <p>スマートフォンの記録と7日間の睡眠日誌から、あなたの体内時計が何時にずれているかを特定します。</p>
+        <div class="topics rise">
+          <div class="topic">
+            <span class="topic-no">01</span>
+            <h3>働きながら、書く</h3>
+            <p>残業のある週にどう机に向かうか。書く時間を作るのではなく、すでにある時間の使い道を変える話。</p>
           </div>
-          <div class="pillar rise">
-            <h3>設計しなおす</h3>
-            <p>起床時刻を固定し、光・体温・カフェインの3つのレバーだけを動かす。あなた専用の夜のスケジュールを引きます。</p>
+          <div class="topic">
+            <span class="topic-no">02</span>
+            <h3>続けるということ</h3>
+            <p>誰にも読まれない時期をどう越えたか。やめたくなった日のことも、そのまま書いています。</p>
           </div>
-          <div class="pillar rise">
-            <h3>ひとりにしない</h3>
-            <p>専任トレーナーが週1回のオンライン面談と、毎朝のチャットで軌道修正。うまくいかない週こそ一緒に考えます。</p>
+          <div class="topic">
+            <span class="topic-no">03</span>
+            <h3>文章の直し方</h3>
+            <p>うまく書く方法は知りません。書いたあと何を削るか、という手つきの話をします。</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- NIGHT BLUEPRINT -->
-    <section class="band" id="night">
+    <!-- POSTS -->
+    <section class="band" id="posts">
       <div class="shell">
-        <p class="eyebrow rise">the blueprint</p>
-        <h2 class="h2 rise">夜の設計図</h2>
-        <p class="lede rise">プログラム中、23時就寝・6時30分起床を目標にする方の一例です。時刻はすべて、あなたの生活に合わせて引き直します。</p>
+        <p class="eyebrow rise">most read</p>
+        <h2 class="h2 rise">よく読まれている6本</h2>
+        <p class="lede rise">はじめての方は、上の2本からどうぞ。</p>
 
-        <div class="night rise">
-          <div class="slot">
-            <div class="slot-time">18:30</div>
-            <div class="slot-body">
-              <h3>最後のカフェインから8時間</h3>
-              <p>コーヒーの効き目は思っているより長く残ります。まず、締め切りを1本決めます。</p>
-            </div>
-          </div>
-          <div class="slot">
-            <div class="slot-time">21:00</div>
-            <div class="slot-body">
-              <h3>部屋の明かりを半分落とす</h3>
-              <p>天井の照明を消し、手元だけを暖色で照らす。眠気のスイッチは、暗さで入ります。</p>
-            </div>
-          </div>
-          <div class="slot">
-            <div class="slot-time">21:40</div>
-            <div class="slot-body">
-              <h3>ぬるめの入浴、15分</h3>
-              <p>上がった深部体温が下がりきる頃に眠気が来ます。逆算すると、入浴は就寝の約90分前。</p>
-            </div>
-          </div>
-          <div class="slot">
-            <div class="slot-time">22:30</div>
-            <div class="slot-body">
-              <h3>「心配ごと」を紙に書き出す</h3>
-              <p>頭の中で回り続ける考えごとを、5分だけ外に出す。布団に持ち込まないための儀式です。</p>
-            </div>
-          </div>
-          <div class="slot">
-            <div class="slot-time">23:00</div>
-            <div class="slot-body">
-              <h3>眠くなってから、布団に入る</h3>
-              <p>眠れないまま横になる時間を減らします。布団は「眠る場所」だと体に覚えさせる工程です。</p>
-            </div>
-          </div>
-          <div class="slot">
-            <div class="slot-time">03:00</div>
-            <div class="slot-body">
-              <h3>もし目が覚めたら、時計を見ない</h3>
-              <p>20分たっても戻れなければ一度離れる。焦らないための手順を、あらかじめ決めておきます。</p>
-            </div>
-          </div>
-          <div class="slot">
-            <div class="slot-time">06:30</div>
-            <div class="slot-body">
-              <h3>起床時刻は、何があっても動かさない</h3>
-              <p>プログラム中いちばん大切な一手。ここが固定できると、夜は自然に整いはじめます。</p>
-            </div>
-          </div>
-          <div class="slot">
-            <div class="slot-time">06:45</div>
-            <div class="slot-body">
-              <h3>15分、外の光を浴びる</h3>
-              <p>朝の光が、その日の夜の眠気を予約します。曇りの日でも屋外の明るさで十分です。</p>
-            </div>
-          </div>
+        <div class="posts rise">
+          <a class="post" href="#" data-demo>
+            <h3>「書けない日」を、記録することにした</h3>
+            <p>書けた日だけを数えていたころは、ずっと自分が怠けているように見えていました。</p>
+            <div class="post-meta"><span>2025.11.18</span><span>12分</span><span class="likes">♥ 2,841</span></div>
+          </a>
+          <a class="post" href="#" data-demo>
+            <h3>誰も読まなかった最初の30本について</h3>
+            <p>スキがゼロの記事が30本ならんだ画面を、いまでもスクリーンショットで持っています。</p>
+            <div class="post-meta"><span>2025.09.02</span><span>15分</span><span class="likes">♥ 4,508</span></div>
+          </a>
+          <a class="post" href="#" data-demo>
+            <h3>文章がうまくなる、たったひとつの退屈な方法</h3>
+            <p>期待させておいて申し訳ないのですが、声に出して読む、それだけの話です。</p>
+            <div class="post-meta"><span>2026.01.27</span><span>9分</span><span class="likes">♥ 6,120</span></div>
+          </a>
+          <a class="post" href="#" data-demo>
+            <h3>会社員のまま書きつづけるための、朝5時</h3>
+            <p>早起きが得意なわけではありません。夜に書くのをあきらめただけです。</p>
+            <div class="post-meta"><span>2025.06.10</span><span>8分</span><span class="likes">♥ 1,932</span></div>
+          </a>
+          <a class="post" href="#" data-demo>
+            <h3>「いつか書く」を捨てた日</h3>
+            <p>いつか書きたいと言っていた5年間に、私は1本も書いていませんでした。</p>
+            <div class="post-meta"><span>2026.03.03</span><span>6分</span><span class="likes">♥ 1,204</span></div>
+          </a>
+          <a class="post" href="#" data-demo>
+            <h3>続けるコツを聞かれたので、正直に答えます</h3>
+            <p>コツはあります。ただ、たぶん期待されているものとは逆の方向にあります。</p>
+            <div class="post-meta"><span>2026.05.19</span><span>11分</span><span class="likes">♥ 3,377</span></div>
+          </a>
         </div>
       </div>
     </section>
 
-    <!-- WEEKS -->
-    <section class="band" id="weeks">
+    <!-- EXCERPT -->
+    <section class="band">
       <div class="shell">
-        <p class="eyebrow rise">4 weeks</p>
-        <h2 class="h2 rise">4週間の進み方</h2>
-        <p class="lede rise">いきなり全部は変えません。1週ごとに動かすレバーを1本だけ増やしていきます。</p>
+        <p class="eyebrow rise">a piece of it</p>
+        <h2 class="h2 rise">どんな文章か、少しだけ。</h2>
 
-        <div class="weeks rise">
-          <div class="week">
-            <span class="week-no">WEEK 01</span>
-            <h3>記録する</h3>
-            <p>まだ何も変えません。7日間の睡眠日誌をつけ、キックオフ面談で現在地を確認します。</p>
-          </div>
-          <div class="week">
-            <span class="week-no">WEEK 02</span>
-            <h3>朝を固定する</h3>
-            <p>起床時刻と朝の光をそろえます。夜の寝つきは、この週にはまだ触りません。</p>
-          </div>
-          <div class="week">
-            <span class="week-no">WEEK 03</span>
-            <h3>夜を組み替える</h3>
-            <p>照明・入浴・カフェインの時刻を設計図どおりに。中途覚醒への対処手順も決めます。</p>
-          </div>
-          <div class="week">
-            <span class="week-no">WEEK 04</span>
-            <h3>ひとりで回す</h3>
-            <p>崩れた日の戻し方を練習し、卒業後3か月分のセルフプランを持ち帰ります。</p>
-          </div>
+        <div class="excerpt rise">
+          <p>　書けなかった日のことを、私は長いあいだ数えていませんでした。数えていたのは書けた日のほうで、だから自分の記録はいつも、すかすかの虫食いに見えていたのだと思います。</p>
+          <p>　あるとき、書けなかった日にも短い一行を残すようにしました。「疲れた」でも「今日は無理」でもいい。三か月ほど続けてから読み返して、はじめて気づきました。書けない日には、ちゃんと理由が並んでいたのです。</p>
+          <cite>「書けない日」を、記録することにした より</cite>
         </div>
       </div>
     </section>
 
-    <!-- PRICE -->
-    <section class="band" id="price">
+    <!-- RHYTHM -->
+    <section class="band" id="rhythm">
       <div class="shell">
-        <p class="eyebrow rise">price</p>
-        <h2 class="h2 rise">料金</h2>
-        <p class="lede rise">追加販売はありません。表示価格のほかに費用はかかりません。</p>
+        <p class="eyebrow rise">rhythm</p>
+        <h2 class="h2 rise">更新のリズム</h2>
+        <p class="lede rise">読む側の予定に組み込みやすいよう、時間と本数を決めています。</p>
 
-        <div class="plans">
-          <div class="plan rise">
-            <h3>セルフ</h3>
-            <div class="price">19,800<small>円 / 4週間（税込）</small></div>
-            <ul>
-              <li>睡眠タイプ診断とレポート</li>
-              <li>あなた専用の「夜の設計図」</li>
-              <li>チャット相談（平日）</li>
-              <li>卒業後のセルフプラン</li>
-            </ul>
-            <a class="btn btn-ghost" href="#apply">このプランで相談する</a>
+        <dl class="rhythm rise">
+          <div class="rhythm-row">
+            <dt>UPDATE</dt>
+            <dd>毎週火曜 6:00<small>通勤前に読み終わる長さで書いています。</small></dd>
           </div>
-          <div class="plan plan-pick rise">
-            <span class="plan-tag">RECOMMENDED</span>
-            <h3>伴走</h3>
-            <div class="price">49,800<small>円 / 4週間（税込）</small></div>
-            <ul>
-              <li>セルフの内容をすべて含む</li>
-              <li>専任トレーナーとの週1回オンライン面談（全4回）</li>
-              <li>毎朝のチャット・フィードバック</li>
-              <li>設計図の週次リライト</li>
-              <li>卒業後3か月のフォロー面談1回</li>
-            </ul>
-            <a class="btn btn-main" href="#apply">このプランで相談する</a>
+          <div class="rhythm-row">
+            <dt>VOLUME</dt>
+            <dd>月4本<small>無料3本、メンバーシップ限定1本。</small></dd>
           </div>
-        </div>
+          <div class="rhythm-row">
+            <dt>LENGTH</dt>
+            <dd>2,000〜4,000字<small>だいたい6分から15分で読めます。</small></dd>
+          </div>
+          <div class="rhythm-row">
+            <dt>MEMBERSHIP</dt>
+            <dd>月500円<small>書きかけの原稿と、月1回のオンライン読書会。いつでも退会できます。</small></dd>
+          </div>
+        </dl>
       </div>
     </section>
 
     <!-- VOICES -->
     <section class="band">
       <div class="shell">
-        <p class="eyebrow rise">voices</p>
-        <h2 class="h2 rise">参加した方の声</h2>
-        <p class="lede rise">※デモ用に作成した架空の体験談です。実在の人物ではありません。</p>
+        <p class="eyebrow rise">readers</p>
+        <h2 class="h2 rise">読んでいる人</h2>
+        <p class="lede rise">※デモ用に作成した架空のコメントです。</p>
 
         <div class="voices">
           <div class="voice rise">
-            <blockquote>「起きる時間だけ固定してください」と言われた時は半信半疑でした。2週目の木曜、気づいたら朝まで一度も起きていなかった。</blockquote>
-            <footer>会社員・42歳／伴走プラン</footer>
+            <blockquote>火曜の朝が少し楽しみになりました。通勤の電車で読んで、その日は自分も一行書いてみようと思える。</blockquote>
+            <footer>会社員・34歳</footer>
           </div>
           <div class="voice rise">
-            <blockquote>寝つけない自分を責めるのをやめられたのが一番大きい。眠れない夜の「手順」があるだけで、こんなに違うとは。</blockquote>
-            <footer>看護師・35歳／伴走プラン</footer>
+            <blockquote>うまく書けと言われないのが良いです。書けなかった週の話が、いちばん励みになっています。</blockquote>
+            <footer>大学院生・26歳</footer>
           </div>
           <div class="voice rise">
-            <blockquote>数字で見せてもらえたのが良かった。感覚では変わった気がしなかった週も、記録では確かに前に進んでいた。</blockquote>
-            <footer>自営業・50歳／セルフプラン</footer>
+            <blockquote>10年ぶりに文章を書き始めました。誰にも読まれない30本の話に、背中を押されたので。</blockquote>
+            <footer>会社員・47歳</footer>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- FAQ -->
-    <section class="band" id="faq">
+    <!-- FINAL -->
+    <section class="band final" id="follow">
       <div class="shell">
-        <p class="eyebrow rise">faq</p>
-        <h2 class="h2 rise">よくある質問</h2>
-
-        <div class="faq rise">
-          <details>
-            <summary>薬を飲んでいますが、参加できますか。</summary>
-            <p>参加いただけます。ただし服薬の内容は主治医の判断が最優先です。当プログラムは薬の増減について指示は行いません。生活リズムの側から睡眠を支える立場でご一緒します。</p>
-          </details>
-          <details>
-            <summary>夜勤や交代勤務があります。</summary>
-            <p>可能です。勤務シフトをうかがったうえで、固定できる時間帯を探して設計図を引きます。日勤の方とは組み立て方が変わるため、無料チェックの際にお伝えください。</p>
-          </details>
-          <details>
-            <summary>面談は顔を出す必要がありますか。</summary>
-            <p>ビデオオフでも構いません。音声のみ、チャットのみでの参加も選べます。話しやすい形をお選びください。</p>
-          </details>
-          <details>
-            <summary>途中でやめられますか。</summary>
-            <p>2週目の面談までにお申し出いただければ、理由を問わず全額返金します。手続きはチャット1通で完了します。</p>
-          </details>
-          <details>
-            <summary>効果は必ず出ますか。</summary>
-            <p>お約束はできません。睡眠の悩みには医学的な治療が必要なものもあります。無料チェックの段階で医療機関の受診をおすすめする場合があり、その際はお申し込みをお受けしません。</p>
-          </details>
+        <p class="eyebrow">next tuesday</p>
+        <h2 class="h2">火曜の朝、続きを読みませんか。</h2>
+        <p class="lede">登録も課金もいりません。note をフォローすると、更新のときだけ通知が届きます。合わなければ、いつでも外してください。</p>
+        <div class="final-cta">
+          <a class="btn btn-main" href="#" data-demo>note をフォローする</a>
+          <a class="btn btn-ghost" href="#posts">先に記事を読む</a>
         </div>
-      </div>
-    </section>
-
-    <!-- APPLY -->
-    <section class="band" id="apply">
-      <div class="shell">
-        <div class="apply rise">
-          <p class="eyebrow">first step</p>
-          <h2 class="h2">まず、7分の睡眠チェックから。</h2>
-          <p class="lede">その場であなたの睡眠タイプと、いま動かすべきレバーが1つ分かります。この時点での費用はかかりません。</p>
-
-          <form class="form" id="applyform" novalidate>
-            <div class="field">
-              <label for="f-name">おなまえ</label>
-              <input id="f-name" name="name" type="text" autocomplete="off" placeholder="夜明 さくら">
-            </div>
-            <div class="field">
-              <label for="f-mail">メールアドレス</label>
-              <input id="f-mail" name="email" type="email" autocomplete="off" placeholder="sakura@example.com">
-            </div>
-            <div class="field">
-              <label for="f-plan">気になっているプラン</label>
-              <select id="f-plan" name="plan">
-                <option>まだ決めていない</option>
-                <option>セルフ</option>
-                <option>伴走</option>
-              </select>
-            </div>
-            <button class="btn btn-main" type="submit">無料の睡眠チェックへ進む</button>
-            <p class="form-msg" id="formmsg" role="status"></p>
-          </form>
-        </div>
+        <p class="final-note">現在 8,412人が購読中／週1通のみ・売り込みはありません（架空の数値です）</p>
       </div>
     </section>
 
@@ -628,12 +473,18 @@
 
   <footer class="foot">
     <div class="shell foot-in">
-      <b>よあけラボ</b>
-      <p style="margin:0">このページはデモンストレーション用に制作したサンプルLPです。「よあけラボ」は架空のサービスであり、記載の料金・数値・体験談はすべて創作です。フォームは送信されません。</p>
+      <b>火曜の朝に書いています</b>
+      <p style="margin:0">このページはデモンストレーション用に制作した、note 導線用のサンプルLPです。「ひらの あお」は架空の人物であり、記事・数値・コメントはすべて創作です。ボタンやリンクの遷移先はありません。</p>
       <p style="margin:0">© 2026 Sample Landing Page</p>
     </div>
   </footer>
 
+  <div class="dock" id="dock">
+    <p class="dock-txt">毎週火曜 6:00 更新<br>週1通・いつでも解除できます</p>
+    <a class="btn btn-main" href="#" data-demo>フォロー</a>
+  </div>
+
+  <div class="toast" id="toast" role="status"></div>
 </div>
 
 <script>
@@ -641,22 +492,23 @@
   var root = document.documentElement;
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  /* ---- theme toggle ---- */
+  /* ---- theme ---- */
   var btn = document.getElementById('themebtn');
-  function currentTheme() {
+  function theme() {
     var set = root.getAttribute('data-theme');
     if (set) return set;
-    return window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
   }
-  function syncLabel() { btn.textContent = currentTheme() === 'dark' ? '朝にする' : '夜にする'; }
+  function label() { btn.textContent = theme() === 'dark' ? '紙にする' : '夜にする'; }
   btn.addEventListener('click', function () {
-    root.setAttribute('data-theme', currentTheme() === 'dark' ? 'light' : 'dark');
-    syncLabel();
-    drawChart();
+    root.setAttribute('data-theme', theme() === 'dark' ? 'light' : 'dark');
+    label();
   });
-  syncLabel();
+  new MutationObserver(label).observe(root, { attributes: true, attributeFilter: ['data-theme'] });
+  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', label);
+  label();
 
-  /* ---- scroll reveal ---- */
+  /* ---- reveal ---- */
   var risers = document.querySelectorAll('.rise');
   function revealAll() { risers.forEach(function (el) { el.classList.add('seen'); }); }
   if (reduce || !('IntersectionObserver' in window)) {
@@ -666,170 +518,39 @@
       entries.forEach(function (e) {
         if (e.isIntersecting) { e.target.classList.add('seen'); io.unobserve(e.target); }
       });
-    }, { rootMargin: '0px 0px -8% 0px', threshold: .12 });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: .1 });
     risers.forEach(function (el) {
-      // 初回表示域にあるものは観測待ちにせず即表示する
       var r = el.getBoundingClientRect();
       if (r.top < window.innerHeight && r.bottom > 0) el.classList.add('seen');
       else io.observe(el);
     });
-    // 観測が働かない環境でも本文が隠れたままにならないための保険
-    setTimeout(revealAll, 4000);
+    setTimeout(revealAll, 4000); // 観測が働かない環境でも本文を隠したままにしない
   }
 
-  /* ---- hypnogram ---- */
-  var canvas = document.getElementById('hypno');
-  var ctx = canvas.getContext('2d');
-
-  // [hour, stage]  stage: 0=覚醒 1=レム 2=浅い 3=深い
-  var BEFORE = [[0,0],[0.6,0],[0.6,2],[1.2,2],[1.2,1],[1.6,1],[1.6,0],[2.0,0],[2.0,2],[2.6,2],[2.6,3],[2.9,3],[2.9,2],[3.6,2],[3.6,0],[4.0,0],[4.0,2],[4.8,2],[4.8,1],[5.3,1],[5.3,2],[5.9,2],[5.9,0],[6.3,0],[6.3,2],[7.0,2],[7.0,1],[7.4,1],[7.4,0],[8,0]];
-  var AFTER  = [[0,0],[0.25,0],[0.25,2],[0.6,2],[0.6,3],[1.5,3],[1.5,2],[1.9,2],[1.9,1],[2.3,1],[2.3,2],[2.7,2],[2.7,3],[3.4,3],[3.4,2],[3.8,2],[3.8,1],[4.4,1],[4.4,2],[5.2,2],[5.2,3],[5.7,3],[5.7,2],[6.1,2],[6.1,1],[6.8,1],[6.8,2],[7.3,2],[7.3,1],[7.8,1],[7.8,0],[8,0]];
-
-  var STAGES = ['覚醒', 'レム', '浅い', '深い'];
-  var HOURS = ['23:00', '01:00', '03:00', '05:00', '07:00'];
-  var progress = reduce ? 1 : 0;
-
-  function token(name) {
-    return getComputedStyle(root).getPropertyValue(name).trim();
+  /* ---- sticky dock : ヒーローを過ぎたら出す ---- */
+  var dock = document.getElementById('dock');
+  var hero = document.querySelector('.hero');
+  var final = document.getElementById('follow');
+  function updateDock() {
+    var pastHero = hero.getBoundingClientRect().bottom < 0;
+    var atFinal = final.getBoundingClientRect().top < window.innerHeight;
+    dock.classList.toggle('up', pastHero && !atFinal);
   }
+  window.addEventListener('scroll', updateDock, { passive: true });
+  window.addEventListener('resize', updateDock);
+  updateDock();
 
-  function drawChart() {
-    var dpr = window.devicePixelRatio || 1;
-    var box = canvas.parentElement.getBoundingClientRect();
-    var w = box.width, h = box.height;
-    if (!w || !h) return;
-    canvas.width = Math.round(w * dpr);
-    canvas.height = Math.round(h * dpr);
-    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-    ctx.clearRect(0, 0, w, h);
-
-    var padL = 44, padR = 8, padT = 10, padB = 26;
-    var plotW = w - padL - padR, plotH = h - padT - padB;
-
-    var cLine = token('--line'), cMuted = token('--muted');
-    var cMoon = token('--moon'), cLamp = token('--lamp');
-
-    ctx.font = '10px ui-monospace, Consolas, monospace';
-    ctx.textBaseline = 'middle';
-
-    // stage gridlines + labels
-    for (var s = 0; s < 4; s++) {
-      var y = padT + (plotH / 3.4) * s + 6;
-      ctx.strokeStyle = cLine;
-      ctx.lineWidth = 1;
-      ctx.beginPath();
-      ctx.moveTo(padL, Math.round(y) + .5);
-      ctx.lineTo(padL + plotW, Math.round(y) + .5);
-      ctx.stroke();
-      ctx.fillStyle = cMuted;
-      ctx.textAlign = 'right';
-      ctx.fillText(STAGES[s], padL - 10, y);
-    }
-
-    // hour labels
-    ctx.textAlign = 'center';
-    ctx.fillStyle = cMuted;
-    for (var i = 0; i < HOURS.length; i++) {
-      var hx = padL + (plotW / (HOURS.length - 1)) * i;
-      ctx.fillText(HOURS[i], Math.min(Math.max(hx, padL + 14), padL + plotW - 14), h - padB / 2 - 2);
-    }
-
-    var X = function (t) { return padL + (t / 8) * plotW; };
-    var Y = function (st) { return padT + (plotH / 3.4) * st + 6; };
-    var cut = padL + plotW * progress;
-
-    function path(points) {
-      ctx.beginPath();
-      for (var i = 0; i < points.length; i++) {
-        var px = X(points[i][0]), py = Y(points[i][1]);
-        if (i === 0) ctx.moveTo(px, py); else ctx.lineTo(px, py);
-      }
-    }
-
-    ctx.save();
-    ctx.beginPath();
-    ctx.rect(0, 0, cut, h);
-    ctx.clip();
-
-    // before: dashed, receding
-    ctx.globalAlpha = .55;
-    ctx.strokeStyle = cMoon;
-    ctx.lineWidth = 1.5;
-    ctx.setLineDash([4, 4]);
-    path(BEFORE);
-    ctx.stroke();
-    ctx.setLineDash([]);
-    ctx.globalAlpha = 1;
-
-    // after: area fill
-    ctx.beginPath();
-    ctx.moveTo(X(0), Y(0));
-    for (var j = 0; j < AFTER.length; j++) ctx.lineTo(X(AFTER[j][0]), Y(AFTER[j][1]));
-    ctx.lineTo(X(8), Y(0));
-    ctx.closePath();
-    ctx.fillStyle = cLamp;
-    ctx.globalAlpha = .10;
-    ctx.fill();
-    ctx.globalAlpha = 1;
-
-    // after: line
-    ctx.strokeStyle = cLamp;
-    ctx.lineWidth = 2;
-    ctx.lineJoin = 'round';
-    path(AFTER);
-    ctx.stroke();
-    ctx.restore();
-
-    // leading dot while animating
-    if (progress < 1) {
-      ctx.beginPath();
-      ctx.arc(cut, Y(stageAt(AFTER, (progress * 8))), 3, 0, Math.PI * 2);
-      ctx.fillStyle = cLamp;
-      ctx.fill();
-    }
-  }
-
-  function stageAt(points, t) {
-    var st = points[0][1];
-    for (var i = 0; i < points.length; i++) {
-      if (points[i][0] <= t) st = points[i][1]; else break;
-    }
-    return st;
-  }
-
-  function animate() {
-    var start = null, dur = 1700;
-    function step(ts) {
-      if (start === null) start = ts;
-      var p = Math.min((ts - start) / dur, 1);
-      progress = 1 - Math.pow(1 - p, 3);
-      drawChart();
-      if (p < 1) requestAnimationFrame(step);
-    }
-    requestAnimationFrame(step);
-  }
-
-  var resizeTimer;
-  window.addEventListener('resize', function () {
-    clearTimeout(resizeTimer);
-    resizeTimer = setTimeout(drawChart, 120);
-  });
-  // レイアウト確定前に描くと潰れるため、実寸が変わるたび描き直す
-  if ('ResizeObserver' in window) {
-    new ResizeObserver(function () { drawChart(); }).observe(canvas.parentElement);
-  }
-  window.addEventListener('load', drawChart);
-  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function () { syncLabel(); drawChart(); });
-  new MutationObserver(function () { syncLabel(); drawChart(); })
-    .observe(root, { attributes: true, attributeFilter: ['data-theme'] });
-
-  drawChart();
-  if (!reduce) animate();
-
-  /* ---- demo form ---- */
-  document.getElementById('applyform').addEventListener('submit', function (e) {
-    e.preventDefault();
-    document.getElementById('formmsg').textContent = 'デモサイトのため、送信は行われません。入力内容はどこにも保存されていません。';
+  /* ---- demo links ---- */
+  var toast = document.getElementById('toast');
+  var toastTimer;
+  document.querySelectorAll('[data-demo]').forEach(function (el) {
+    el.addEventListener('click', function (e) {
+      e.preventDefault();
+      toast.textContent = 'デモのため、リンク先はありません。';
+      toast.classList.add('on');
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(function () { toast.classList.remove('on'); }, 2200);
+    });
   });
 })();
 </script>
