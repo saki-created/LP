@@ -10,6 +10,9 @@ $RECYCLE.BIN/
 .idea/
 *.swp
 
+# 各自のPC固有の設定
+.claude/settings.local.json
+
 # 依存関係・ビルド成果物
 node_modules/
 dist/
