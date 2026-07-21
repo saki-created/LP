@@ -3,565 +3,277 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>火曜の朝に書いています｜note導線用サンプルLP</title>
-<meta name="description" content="サンプルLPです。架空の書き手「ひらの あお」のnote導線用ランディングページ。">
+<title>にしむら はる｜小さなお店のデザイン（自己紹介サンプルLP）</title>
+<meta name="description" content="サンプルLPです。架空のデザイナーの自己紹介ランディングページ。">
 <meta name="robots" content="noindex">
 <!-- ARTIFACT:START -->
 <style>
-  /* ================= tokens : 紙 (default) ================= */
+  /* ============ 色 ============ */
   :root {
-    --paper:    #E9E9E2;
-    --surface:  #F5F5F0;
-    --ink:      #15224E;
-    --text:     #15224E;
-    --muted:    #5C6480;
-    --pink:     #D62B52;
-    --pink-flat:#E8365F;
-    --line:     #C2C3BC;
-    --shadow:   6px 6px 0 rgba(21,34,78,.10);
+    --bg:      #F3F7F4;
+    --card:    #FFFFFF;
+    --text:    #3B4A45;
+    --soft:    #6E7F79;
+    --apricot: #D97434;
+    --apricot-bright: #F2A65A;
+    --sage:    #7FAF9C;
+    --sage-pale: #E4EFE9;
+    --peach-pale: #FBEEE2;
+    --edge:    #DCE7E1;
   }
   @media (prefers-color-scheme: dark) {
     :root {
-      --paper:    #101733;
-      --surface:  #182142;
-      --ink:      #EBEBE3;
-      --text:     #EBEBE3;
-      --muted:    #98A0BE;
-      --pink:     #FF6E8D;
-      --pink-flat:#FF4F79;
-      --line:     #2C3861;
-      --shadow:   6px 6px 0 rgba(0,0,0,.35);
+      --bg:      #232B29;
+      --card:    #2C3634;
+      --text:    #EAF0ED;
+      --soft:    #A9BBB4;
+      --apricot: #F2A65A;
+      --apricot-bright: #F2A65A;
+      --sage:    #8FC0AD;
+      --sage-pale: #2F3D39;
+      --peach-pale: #3A342E;
+      --edge:    #3C4845;
     }
   }
   :root[data-theme="light"] {
-    --paper:#E9E9E2; --surface:#F5F5F0; --ink:#15224E; --text:#15224E;
-    --muted:#5C6480; --pink:#D62B52; --pink-flat:#E8365F; --line:#C2C3BC;
-    --shadow:6px 6px 0 rgba(21,34,78,.10);
+    --bg:#F3F7F4; --card:#FFFFFF; --text:#3B4A45; --soft:#6E7F79;
+    --apricot:#D97434; --apricot-bright:#F2A65A; --sage:#7FAF9C;
+    --sage-pale:#E4EFE9; --peach-pale:#FBEEE2; --edge:#DCE7E1;
   }
   :root[data-theme="dark"] {
-    --paper:#101733; --surface:#182142; --ink:#EBEBE3; --text:#EBEBE3;
-    --muted:#98A0BE; --pink:#FF6E8D; --pink-flat:#FF4F79; --line:#2C3861;
-    --shadow:6px 6px 0 rgba(0,0,0,.35);
-  }
-
-  :root {
-    --sans: "Hiragino Kaku Gothic ProN", "Yu Gothic UI", "Yu Gothic", "Noto Sans JP", Meiryo, sans-serif;
-    --serif: "Hiragino Mincho ProN", "Yu Mincho", "YuMincho", "Noto Serif JP", "MS PMincho", serif;
-    --mono: ui-monospace, "SF Mono", SFMono-Regular, Consolas, "Courier New", monospace;
-    --wrap: 1040px;
+    --bg:#232B29; --card:#2C3634; --text:#EAF0ED; --soft:#A9BBB4;
+    --apricot:#F2A65A; --apricot-bright:#F2A65A; --sage:#8FC0AD;
+    --sage-pale:#2F3D39; --peach-pale:#3A342E; --edge:#3C4845;
   }
 
   * { box-sizing: border-box; }
 
   .page {
-    position: relative;
-    background: #E9E9E2; /* カスタムプロパティが効かない環境向けの素の値 */
-    color: #15224E;
-    background: var(--paper);
+    background: #F3F7F4;          /* 変数が使えない環境でも必ず色がつくように */
+    color: #3B4A45;
+    background: var(--bg);
     color: var(--text);
-    font-family: var(--sans);
+    font-family: "Hiragino Maru Gothic ProN", "ヒラギノ丸ゴ ProN W4",
+                 "Hiragino Kaku Gothic ProN", "Yu Gothic UI", "Yu Gothic",
+                 Meiryo, sans-serif;
     font-size: 16px;
-    line-height: 1.9;
-    letter-spacing: .02em;
+    line-height: 2;
+    letter-spacing: .03em;
     -webkit-font-smoothing: antialiased;
-    overflow-x: hidden;
-    padding-bottom: 86px; /* 下部固定CTAの逃げ */
-  }
-  @media (min-width: 760px) { .page { padding-bottom: 0; } }
-
-  /* 紙の粒子 */
-  .grain {
-    position: fixed; inset: 0; z-index: 60; pointer-events: none; opacity: .05;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   }
 
-  .shell { width: 100%; max-width: var(--wrap); margin-inline: auto; padding-inline: 22px; }
+  .inner { max-width: 720px; margin-left: auto; margin-right: auto; padding-left: 24px; padding-right: 24px; }
 
-  /* ================= demo bar ================= */
-  .demobar {
-    background: var(--ink); color: var(--paper);
-    font-family: var(--mono); font-size: 11.5px; letter-spacing: .1em;
-    text-align: center; padding: 7px 14px; line-height: 1.6;
+  /* ============ 共通のリズム ============ */
+  .section { padding-top: 76px; padding-bottom: 76px; }
+  .label {
+    display: inline-block;
+    font-size: 12.5px; letter-spacing: .16em;
+    color: var(--apricot);
+    background: var(--peach-pale);
+    padding: 5px 15px; border-radius: 999px;
+    margin-bottom: 20px;
   }
+  h2 {
+    font-size: 27px; line-height: 1.7; font-weight: 700;
+    margin-top: 0; margin-bottom: 20px; letter-spacing: .02em;
+  }
+  p { margin-top: 0; }
 
-  /* ================= header ================= */
-  .top { border-bottom: 2px solid var(--ink); }
-  .top-in { display: flex; align-items: center; gap: 16px; height: 60px; }
-  .mark {
-    font-family: var(--mono); font-size: 12px; letter-spacing: .2em;
-    border: 2px solid var(--ink); padding: 4px 10px; margin-right: auto;
+  /* ============ ヒーロー ============ */
+  .hero {
+    background: var(--sage-pale);
+    padding-top: 72px; padding-bottom: 88px;
+    border-bottom-left-radius: 42px; border-bottom-right-radius: 42px;
+    text-align: center;
   }
-  .top-link {
-    font-size: 13.5px; color: var(--muted); text-decoration: none;
-    border-bottom: 1px solid transparent;
+  .photo {
+    width: 108px; height: 108px; border-radius: 50%;
+    margin: 0 auto 24px; display: block;
+    background: var(--apricot-bright);
+    color: #FFFFFF; font-size: 40px; line-height: 108px; text-align: center;
+    letter-spacing: .05em;
   }
-  .top-link:hover { color: var(--pink); border-bottom-color: var(--pink); }
-  .themebtn {
-    font-family: var(--mono); font-size: 11px; letter-spacing: .12em;
-    background: transparent; color: var(--muted);
-    border: 1px solid var(--line); padding: 6px 12px; cursor: pointer;
+  .hero h1 {
+    font-size: 33px; line-height: 1.75; font-weight: 700;
+    margin-top: 0; margin-bottom: 18px; letter-spacing: .02em;
   }
-  .themebtn:hover { color: var(--pink); border-color: var(--pink); }
+  .hero h1 .accent { color: var(--apricot); }
+  .hero .name { font-size: 15px; color: var(--soft); margin-bottom: 6px; }
+  .hero .job { font-size: 14px; color: var(--soft); margin-bottom: 30px; }
 
-  /* ================= shared ================= */
-  .band { padding-block: clamp(58px, 8vw, 100px); }
-  .band + .band { border-top: 1px solid var(--line); }
-  .eyebrow {
-    font-family: var(--mono); font-size: 11.5px; letter-spacing: .22em;
-    color: var(--pink); margin: 0 0 14px; text-transform: uppercase;
-  }
-  .h2 {
-    font-family: var(--sans); font-weight: 800;
-    font-size: clamp(24px, 3.9vw, 36px);
-    line-height: 1.5; letter-spacing: .02em;
-    margin: 0 0 16px; text-wrap: balance;
-  }
-  .lede { color: var(--muted); max-width: 60ch; margin: 0; font-size: 15.5px; }
-
-  a { color: var(--pink); }
-
-  /* ================= hero ================= */
-  .hero { padding-block: clamp(50px, 7vw, 88px) clamp(44px, 6vw, 76px); }
-  .hero-in { display: grid; gap: clamp(36px, 5vw, 54px); align-items: start; }
-  @media (min-width: 900px) { .hero-in { grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr); } }
-
-  .h1 {
-    font-family: var(--sans); font-weight: 800;
-    font-size: clamp(32px, 6.4vw, 60px);
-    line-height: 1.38; letter-spacing: -.005em;
-    margin: 0 0 24px; text-wrap: balance;
-    text-shadow: 3px 3px 0 var(--pink-flat); /* 2色刷りの版ズレ */
-  }
-  .hero-sub { color: var(--muted); max-width: 38ch; margin: 0 0 28px; font-size: 15.5px; }
-
-  .cta-row { display: flex; flex-wrap: wrap; gap: 12px; }
   .btn {
-    display: inline-flex; align-items: center; gap: 9px;
-    font-family: var(--sans); font-size: 14.5px; font-weight: 700; letter-spacing: .04em;
-    padding: 14px 24px; text-decoration: none; cursor: pointer;
-    border: 2px solid var(--ink); background: transparent; color: var(--ink);
-    transition: transform .16s ease, box-shadow .16s ease;
+    display: inline-block;
+    background: var(--apricot); color: #FFFFFF;
+    font-size: 16px; font-weight: 700; letter-spacing: .04em;
+    text-decoration: none;
+    padding: 17px 40px; border-radius: 999px;
+    box-shadow: 0 6px 18px rgba(217,116,52,.28);
   }
-  .btn-main { background: var(--pink-flat); border-color: var(--pink-flat); color: #FFF; box-shadow: var(--shadow); }
-  .btn-main:hover { transform: translate(-3px, -3px); box-shadow: 9px 9px 0 rgba(21,34,78,.14); }
-  .btn-ghost:hover { transform: translate(-2px, -2px); box-shadow: 4px 4px 0 var(--line); }
-  .btn:focus-visible, a:focus-visible, button:focus-visible, summary:focus-visible {
-    outline: 2px solid var(--pink); outline-offset: 3px;
+  .btn:hover { background: var(--apricot-bright); }
+  .btn:focus-visible, a:focus-visible { outline: 3px solid var(--sage); outline-offset: 3px; }
+  .btn-note { font-size: 13px; color: var(--soft); margin-top: 14px; margin-bottom: 0; }
+
+  /* ============ 共感 ============ */
+  .worry {
+    background: var(--card); border: 1px solid var(--edge);
+    border-radius: 22px; padding: 22px 26px; margin-bottom: 14px;
+    font-size: 16px;
   }
+  .worry:last-of-type { margin-bottom: 0; }
+  .worry .quote { color: var(--sage); font-weight: 700; margin-right: 8px; }
+  .after-worry { margin-top: 30px; margin-bottom: 0; font-size: 16.5px; }
+  .after-worry strong { color: var(--apricot); }
 
-  /* 書き手カード */
-  .who {
-    background: var(--surface); border: 2px solid var(--ink);
-    padding: 24px 22px; display: grid; gap: 14px; box-shadow: var(--shadow);
+  /* ============ 内容 ============ */
+  .menu { background: var(--card); border-radius: 26px; padding: 30px 28px; margin-bottom: 18px; border: 1px solid var(--edge); }
+  .menu:last-of-type { margin-bottom: 0; }
+  .menu h3 { font-size: 19px; margin-top: 0; margin-bottom: 10px; font-weight: 700; }
+  .menu p { color: var(--soft); font-size: 15px; margin-bottom: 0; }
+  .menu .price { display: inline-block; margin-top: 16px; font-size: 14px; color: var(--apricot); background: var(--peach-pale); padding: 4px 14px; border-radius: 999px; }
+
+  .steps { margin-top: 40px; padding-left: 0; list-style: none; }
+  .steps li { position: relative; padding-left: 52px; padding-bottom: 26px; }
+  .steps li:last-child { padding-bottom: 0; }
+  .steps .num {
+    position: absolute; left: 0; top: 4px;
+    width: 34px; height: 34px; border-radius: 50%;
+    background: var(--sage); color: #FFFFFF;
+    font-size: 15px; line-height: 34px; text-align: center;
   }
-  .who-top { display: flex; align-items: center; gap: 14px; }
-  .avatar {
-    width: 56px; height: 56px; flex: none; border-radius: 50%;
-    background: var(--pink-flat); color: #FFF;
-    display: grid; place-items: center;
-    font-family: var(--serif); font-size: 22px; letter-spacing: .04em;
+  .steps b { display: block; font-size: 16.5px; }
+  .steps span { color: var(--soft); font-size: 14.5px; }
+
+  /* ============ 問い合わせ ============ */
+  .contact {
+    background: var(--peach-pale);
+    border-radius: 42px;
+    margin-top: 30px; margin-bottom: 60px;
+    padding-top: 64px; padding-bottom: 64px;
+    text-align: center;
   }
-  .who-name { font-weight: 800; font-size: 17px; line-height: 1.5; }
-  .who-handle { font-family: var(--mono); font-size: 12px; color: var(--muted); letter-spacing: .04em; }
-  .who p { margin: 0; font-size: 14px; color: var(--muted); }
-  .who-nums { display: flex; gap: 22px; border-top: 1px solid var(--line); padding-top: 14px; }
-  .who-nums div { display: grid; }
-  .who-nums b { font-family: var(--mono); font-variant-numeric: tabular-nums; font-size: 19px; letter-spacing: 0; }
-  .who-nums span { font-size: 11.5px; color: var(--muted); }
+  .contact h2 { margin-bottom: 14px; }
+  .contact p { color: var(--soft); font-size: 15.5px; margin-bottom: 30px; }
 
-  /* ================= themes ================= */
-  .topics { display: grid; gap: 1px; background: var(--line); border: 2px solid var(--ink); margin-top: 36px; }
-  @media (min-width: 780px) { .topics { grid-template-columns: repeat(3, 1fr); } }
-  .topic { background: var(--paper); padding: 26px 22px; display: grid; gap: 9px; align-content: start; }
-  .topic-no { font-family: var(--mono); font-size: 11px; letter-spacing: .16em; color: var(--pink); }
-  .topic h3 { font-size: 18px; font-weight: 800; margin: 0; letter-spacing: .02em; }
-  .topic p { margin: 0; color: var(--muted); font-size: 14px; }
-
-  /* ================= articles ================= */
-  .posts { display: grid; gap: 18px; margin-top: 36px; }
-  @media (min-width: 720px) { .posts { grid-template-columns: 1fr 1fr; } }
-  .post {
-    display: grid; gap: 10px; align-content: start;
-    background: var(--surface); border: 1px solid var(--line);
-    padding: 22px 20px; text-decoration: none; color: inherit;
-    transition: transform .16s ease, box-shadow .16s ease, border-color .16s ease;
+  /* ============ 補足 ============ */
+  .demo {
+    background: var(--sage); color: #FFFFFF;
+    font-size: 12.5px; text-align: center; padding: 8px 16px; line-height: 1.7;
   }
-  .post:hover { transform: translate(-3px, -3px); box-shadow: var(--shadow); border-color: var(--ink); }
-  .post h3 { font-size: 17.5px; font-weight: 800; margin: 0; line-height: 1.6; letter-spacing: .01em; }
-  .post p { margin: 0; font-size: 13.5px; color: var(--muted); }
-  .post-meta {
-    display: flex; flex-wrap: wrap; gap: 14px;
-    font-family: var(--mono); font-size: 11.5px; font-variant-numeric: tabular-nums;
-    color: var(--muted); letter-spacing: .02em;
-    border-top: 1px solid var(--line); padding-top: 10px;
+  .foot { text-align: center; color: var(--soft); font-size: 12.5px; padding-bottom: 44px; line-height: 1.9; }
+
+  /* ============ スマホ ============ */
+  @media (max-width: 600px) {
+    .hero h1 { font-size: 26px; }
+    h2 { font-size: 22px; }
+    .hero { padding-top: 54px; padding-bottom: 64px; border-bottom-left-radius: 30px; border-bottom-right-radius: 30px; }
+    .section { padding-top: 58px; padding-bottom: 58px; }
+    .contact { border-radius: 30px; padding-top: 50px; padding-bottom: 50px; }
+    .btn { display: block; padding-left: 20px; padding-right: 20px; }
   }
-  .post-meta .likes { color: var(--pink); }
-
-  /* ================= excerpt ================= */
-  .excerpt {
-    margin-top: 34px; border-left: 3px solid var(--pink-flat);
-    padding: 6px 0 6px 26px; max-width: 34em;
-  }
-  .excerpt p {
-    font-family: var(--serif); font-size: clamp(16px, 2vw, 18.5px);
-    line-height: 2.15; letter-spacing: .05em; margin: 0 0 1.4em;
-  }
-  .excerpt p:last-of-type { margin-bottom: 0; }
-  .excerpt cite { display: block; margin-top: 20px; font-style: normal; font-family: var(--mono); font-size: 11.5px; color: var(--muted); letter-spacing: .06em; }
-
-  /* ================= rhythm ================= */
-  .rhythm { margin-top: 34px; border: 2px solid var(--ink); }
-  .rhythm-row { display: grid; grid-template-columns: 132px 1fr; gap: 18px; padding: 16px 20px; }
-  .rhythm-row + .rhythm-row { border-top: 1px solid var(--line); }
-  .rhythm-row dt { font-family: var(--mono); font-size: 12px; letter-spacing: .12em; color: var(--muted); margin: 0; padding-top: 2px; }
-  .rhythm-row dd { margin: 0; font-size: 15px; }
-  .rhythm-row dd small { display: block; font-size: 13px; color: var(--muted); }
-  @media (max-width: 560px) { .rhythm-row { grid-template-columns: 1fr; gap: 4px; } }
-
-  /* ================= voices ================= */
-  .voices { display: grid; gap: 18px; margin-top: 34px; }
-  @media (min-width: 820px) { .voices { grid-template-columns: repeat(3, 1fr); } }
-  .voice { border: 1px solid var(--line); background: var(--surface); padding: 22px 20px; display: grid; gap: 12px; align-content: start; }
-  .voice blockquote { margin: 0; font-family: var(--serif); font-size: 15.5px; line-height: 2; letter-spacing: .04em; }
-  .voice footer { font-family: var(--mono); font-size: 11.5px; color: var(--muted); letter-spacing: .04em; }
-
-  /* ================= final cta ================= */
-  .final { background: var(--ink); color: var(--paper); }
-  .final .h2 { color: var(--paper); }
-  .final .eyebrow { color: var(--pink-flat); }
-  .final p.lede { color: var(--paper); opacity: .78; }
-  .final .btn-ghost { border-color: var(--paper); color: var(--paper); }
-  .final .btn-ghost:hover { box-shadow: 4px 4px 0 rgba(255,255,255,.25); }
-  .final-cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
-  .final-note { font-size: 12.5px; margin: 18px 0 0; color: var(--paper); opacity: .66; }
-
-  /* ================= sticky mobile cta ================= */
-  .dock {
-    position: fixed; left: 0; right: 0; bottom: 0; z-index: 50;
-    background: var(--surface); border-top: 2px solid var(--ink);
-    padding: 10px 16px; display: flex; align-items: center; gap: 12px;
-    transform: translateY(110%); transition: transform .3s ease;
-  }
-  .dock.up { transform: none; }
-  .dock-txt { font-size: 12.5px; line-height: 1.5; color: var(--muted); margin: 0; }
-  .dock .btn { margin-left: auto; padding: 11px 18px; font-size: 13.5px; flex: none; }
-  @media (min-width: 760px) { .dock { display: none; } }
-
-  /* ================= footer ================= */
-  .foot { border-top: 1px solid var(--line); padding-block: 36px; color: var(--muted); font-size: 12.5px; }
-  .foot-in { display: grid; gap: 9px; }
-  .foot b { font-size: 14px; color: var(--text); }
-
-  /* ================= toast ================= */
-  .toast {
-    position: fixed; left: 50%; bottom: 96px; transform: translate(-50%, 14px);
-    background: var(--ink); color: var(--paper);
-    font-size: 13px; padding: 11px 18px; z-index: 70;
-    opacity: 0; pointer-events: none; transition: opacity .25s ease, transform .25s ease;
-    max-width: calc(100% - 32px); text-align: center;
-  }
-  .toast.on { opacity: 1; transform: translate(-50%, 0); }
-
-  /* ================= reveal ================= */
-  /* JSが動く環境でだけ隠す。スクリプトが止まっても本文は必ず見える */
-  :root.js-anim .rise { opacity: 0; transform: translateY(14px); transition: opacity .6s ease, transform .6s ease; }
-  :root.js-anim .rise.seen { opacity: 1; transform: none; }
-  @media (prefers-reduced-motion: reduce) {
-    :root.js-anim .rise { opacity: 1; transform: none; transition: none; }
-    .btn:hover, .post:hover { transform: none; }
-    .dock { transition: none; }
-  }
-  html { scroll-behavior: smooth; }
-  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 </style>
-<script>
-  /* 本文を隠すのはJSが生きているときだけ。描画前に付けてチラつきを防ぐ */
-  document.documentElement.classList.add('js-anim');
-</script>
 </head>
 <body>
 <div class="page">
-  <div class="grain" aria-hidden="true"></div>
 
-  <div class="demobar">DEMO ─ 架空の書き手によるサンプルLPです。人物・記事・数値はすべて実在せず、リンク先もありません。</div>
+  <p class="demo" style="margin:0">これはサンプルのLPです。「にしむら はる」は架空の人物で、内容・料金はすべて創作です。</p>
 
-  <header class="top">
-    <div class="shell top-in">
-      <div class="mark">TUE 06:00</div>
-      <a class="top-link" href="#posts">記事</a>
-      <a class="top-link" href="#rhythm">更新のリズム</a>
-      <button class="themebtn" id="themebtn" type="button">夜にする</button>
+  <!-- ① ヒーロー -->
+  <div class="hero">
+    <div class="inner">
+      <div class="photo">は</div>
+      <p class="name">にしむら はる</p>
+      <h1>小さなお店の<br><span class="accent">「らしさ」</span>を、かたちにします。</h1>
+      <p class="job">ロゴ・チラシ・お店のこと｜フリーランス9年目</p>
+      <a class="btn" href="#contact">まずは気軽に相談する</a>
+      <p class="btn-note">ご相談は無料です。売り込みはしません。</p>
     </div>
-  </header>
-
-  <main>
-
-    <!-- HERO -->
-    <section class="hero">
-      <div class="shell hero-in">
-        <div>
-          <p class="eyebrow">note / essay</p>
-          <h1 class="h1">書きたいけれど、<br>時間がない人へ。</h1>
-          <p class="hero-sub">平日は会社員、火曜の朝だけ物書き。働きながら6年間、note に書きつづけてきた記録です。毎週火曜6時、更新しています。</p>
-          <div class="cta-row">
-            <a class="btn btn-main" href="#" data-demo>note を読む</a>
-            <a class="btn btn-ghost" href="#" data-demo>フォローする</a>
-          </div>
-        </div>
-
-        <div class="who">
-          <div class="who-top">
-            <div class="avatar" aria-hidden="true">あ</div>
-            <div>
-              <div class="who-name">ひらの あお</div>
-              <div class="who-handle">@hirano_ao</div>
-            </div>
-          </div>
-          <p>会社員をしながら、「働きながら書く」ことについて書いています。文章の教室に通ったことはありません。続け方だけを、6年かけて覚えました。</p>
-          <div class="who-nums">
-            <div><b>287</b><span>記事</span></div>
-            <div><b>8,412</b><span>フォロワー</span></div>
-            <div><b>6</b><span>年目</span></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- TOPICS -->
-    <section class="band">
-      <div class="shell">
-        <p class="eyebrow rise">topics</p>
-        <h2 class="h2 rise">書いているのは、この3つだけです。</h2>
-        <p class="lede rise">読む前に、合うかどうかが分かるように。6年ぶんの記事は、ほぼこの3つに収まります。</p>
-
-        <div class="topics rise">
-          <div class="topic">
-            <span class="topic-no">01</span>
-            <h3>働きながら、書く</h3>
-            <p>残業のある週にどう机に向かうか。書く時間を作るのではなく、すでにある時間の使い道を変える話。</p>
-          </div>
-          <div class="topic">
-            <span class="topic-no">02</span>
-            <h3>続けるということ</h3>
-            <p>誰にも読まれない時期をどう越えたか。やめたくなった日のことも、そのまま書いています。</p>
-          </div>
-          <div class="topic">
-            <span class="topic-no">03</span>
-            <h3>文章の直し方</h3>
-            <p>うまく書く方法は知りません。書いたあと何を削るか、という手つきの話をします。</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- POSTS -->
-    <section class="band" id="posts">
-      <div class="shell">
-        <p class="eyebrow rise">most read</p>
-        <h2 class="h2 rise">よく読まれている6本</h2>
-        <p class="lede rise">はじめての方は、上の2本からどうぞ。</p>
-
-        <div class="posts rise">
-          <a class="post" href="#" data-demo>
-            <h3>「書けない日」を、記録することにした</h3>
-            <p>書けた日だけを数えていたころは、ずっと自分が怠けているように見えていました。</p>
-            <div class="post-meta"><span>2025.11.18</span><span>12分</span><span class="likes">♥ 2,841</span></div>
-          </a>
-          <a class="post" href="#" data-demo>
-            <h3>誰も読まなかった最初の30本について</h3>
-            <p>スキがゼロの記事が30本ならんだ画面を、いまでもスクリーンショットで持っています。</p>
-            <div class="post-meta"><span>2025.09.02</span><span>15分</span><span class="likes">♥ 4,508</span></div>
-          </a>
-          <a class="post" href="#" data-demo>
-            <h3>文章がうまくなる、たったひとつの退屈な方法</h3>
-            <p>期待させておいて申し訳ないのですが、声に出して読む、それだけの話です。</p>
-            <div class="post-meta"><span>2026.01.27</span><span>9分</span><span class="likes">♥ 6,120</span></div>
-          </a>
-          <a class="post" href="#" data-demo>
-            <h3>会社員のまま書きつづけるための、朝5時</h3>
-            <p>早起きが得意なわけではありません。夜に書くのをあきらめただけです。</p>
-            <div class="post-meta"><span>2025.06.10</span><span>8分</span><span class="likes">♥ 1,932</span></div>
-          </a>
-          <a class="post" href="#" data-demo>
-            <h3>「いつか書く」を捨てた日</h3>
-            <p>いつか書きたいと言っていた5年間に、私は1本も書いていませんでした。</p>
-            <div class="post-meta"><span>2026.03.03</span><span>6分</span><span class="likes">♥ 1,204</span></div>
-          </a>
-          <a class="post" href="#" data-demo>
-            <h3>続けるコツを聞かれたので、正直に答えます</h3>
-            <p>コツはあります。ただ、たぶん期待されているものとは逆の方向にあります。</p>
-            <div class="post-meta"><span>2026.05.19</span><span>11分</span><span class="likes">♥ 3,377</span></div>
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- EXCERPT -->
-    <section class="band">
-      <div class="shell">
-        <p class="eyebrow rise">a piece of it</p>
-        <h2 class="h2 rise">どんな文章か、少しだけ。</h2>
-
-        <div class="excerpt rise">
-          <p>　書けなかった日のことを、私は長いあいだ数えていませんでした。数えていたのは書けた日のほうで、だから自分の記録はいつも、すかすかの虫食いに見えていたのだと思います。</p>
-          <p>　あるとき、書けなかった日にも短い一行を残すようにしました。「疲れた」でも「今日は無理」でもいい。三か月ほど続けてから読み返して、はじめて気づきました。書けない日には、ちゃんと理由が並んでいたのです。</p>
-          <cite>「書けない日」を、記録することにした より</cite>
-        </div>
-      </div>
-    </section>
-
-    <!-- RHYTHM -->
-    <section class="band" id="rhythm">
-      <div class="shell">
-        <p class="eyebrow rise">rhythm</p>
-        <h2 class="h2 rise">更新のリズム</h2>
-        <p class="lede rise">読む側の予定に組み込みやすいよう、時間と本数を決めています。</p>
-
-        <dl class="rhythm rise">
-          <div class="rhythm-row">
-            <dt>UPDATE</dt>
-            <dd>毎週火曜 6:00<small>通勤前に読み終わる長さで書いています。</small></dd>
-          </div>
-          <div class="rhythm-row">
-            <dt>VOLUME</dt>
-            <dd>月4本<small>無料3本、メンバーシップ限定1本。</small></dd>
-          </div>
-          <div class="rhythm-row">
-            <dt>LENGTH</dt>
-            <dd>2,000〜4,000字<small>だいたい6分から15分で読めます。</small></dd>
-          </div>
-          <div class="rhythm-row">
-            <dt>MEMBERSHIP</dt>
-            <dd>月500円<small>書きかけの原稿と、月1回のオンライン読書会。いつでも退会できます。</small></dd>
-          </div>
-        </dl>
-      </div>
-    </section>
-
-    <!-- VOICES -->
-    <section class="band">
-      <div class="shell">
-        <p class="eyebrow rise">readers</p>
-        <h2 class="h2 rise">読んでいる人</h2>
-        <p class="lede rise">※デモ用に作成した架空のコメントです。</p>
-
-        <div class="voices">
-          <div class="voice rise">
-            <blockquote>火曜の朝が少し楽しみになりました。通勤の電車で読んで、その日は自分も一行書いてみようと思える。</blockquote>
-            <footer>会社員・34歳</footer>
-          </div>
-          <div class="voice rise">
-            <blockquote>うまく書けと言われないのが良いです。書けなかった週の話が、いちばん励みになっています。</blockquote>
-            <footer>大学院生・26歳</footer>
-          </div>
-          <div class="voice rise">
-            <blockquote>10年ぶりに文章を書き始めました。誰にも読まれない30本の話に、背中を押されたので。</blockquote>
-            <footer>会社員・47歳</footer>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- FINAL -->
-    <section class="band final" id="follow">
-      <div class="shell">
-        <p class="eyebrow">next tuesday</p>
-        <h2 class="h2">火曜の朝、続きを読みませんか。</h2>
-        <p class="lede">登録も課金もいりません。note をフォローすると、更新のときだけ通知が届きます。合わなければ、いつでも外してください。</p>
-        <div class="final-cta">
-          <a class="btn btn-main" href="#" data-demo>note をフォローする</a>
-          <a class="btn btn-ghost" href="#posts">先に記事を読む</a>
-        </div>
-        <p class="final-note">現在 8,412人が購読中／週1通のみ・売り込みはありません（架空の数値です）</p>
-      </div>
-    </section>
-
-  </main>
-
-  <footer class="foot">
-    <div class="shell foot-in">
-      <b>火曜の朝に書いています</b>
-      <p style="margin:0">このページはデモンストレーション用に制作した、note 導線用のサンプルLPです。「ひらの あお」は架空の人物であり、記事・数値・コメントはすべて創作です。ボタンやリンクの遷移先はありません。</p>
-      <p style="margin:0">© 2026 Sample Landing Page</p>
-    </div>
-  </footer>
-
-  <div class="dock" id="dock">
-    <p class="dock-txt">毎週火曜 6:00 更新<br>週1通・いつでも解除できます</p>
-    <a class="btn btn-main" href="#" data-demo>フォロー</a>
   </div>
 
-  <div class="toast" id="toast" role="status"></div>
+  <!-- ② 共感 -->
+  <div class="section">
+    <div class="inner">
+      <span class="label">こんなこと、ありませんか</span>
+      <h2>「うまく言葉にできない」を、<br>そのまま持ってきてください。</h2>
+
+      <div class="worry"><span class="quote">“</span>やりたいことはあるのに、どう伝えたらいいか分からない。</div>
+      <div class="worry"><span class="quote">“</span>デザインを頼むのは、なんだか敷居が高い気がする。</div>
+      <div class="worry"><span class="quote">“</span>前に頼んだとき、専門用語が多くて話しづらかった。</div>
+      <div class="worry"><span class="quote">“</span>予算がどれくらいかかるのか、そもそも見当がつかない。</div>
+
+      <p class="after-worry">わたしの仕事の半分は、<strong>お話を聞くこと</strong>です。まとまっていなくて大丈夫。「なんとなくこんな感じ」から一緒にほどいていきます。</p>
+    </div>
+  </div>
+
+  <!-- ③ 内容 -->
+  <div class="section" style="background:var(--card)">
+    <div class="inner">
+      <span class="label">できること</span>
+      <h2>お店まわりのことなら、<br>ひととおりお引き受けします。</h2>
+
+      <div class="menu" style="background:var(--bg)">
+        <h3>ロゴをつくる</h3>
+        <p>お店の名前の由来からうかがって、看板にも名刺にも使える形に整えます。カラー違い・白黒版までお渡しします。</p>
+        <span class="price">88,000円〜</span>
+      </div>
+
+      <div class="menu" style="background:var(--bg)">
+        <h3>チラシ・メニューをつくる</h3>
+        <p>写真がなくても大丈夫です。撮影からご一緒することもできます。印刷の手配までまとめてお任せいただけます。</p>
+        <span class="price">44,000円〜</span>
+      </div>
+
+      <div class="menu" style="background:var(--bg)">
+        <h3>相談だけする</h3>
+        <p>つくらなくても構いません。「これで合っているのかな」を60分で一緒に確かめる時間です。オンラインでどうぞ。</p>
+        <span class="price">5,500円 / 60分</span>
+      </div>
+
+      <ol class="steps">
+        <li>
+          <span class="num">1</span>
+          <b>お問い合わせ</b>
+          <span>フォームに一言だけで大丈夫です。2営業日以内にお返事します。</span>
+        </li>
+        <li>
+          <span class="num">2</span>
+          <b>お話をうかがう（60分・無料）</b>
+          <span>オンラインでも、お店にうかがっても。この時点でのお断りも歓迎です。</span>
+        </li>
+        <li>
+          <span class="num">3</span>
+          <b>お見積もりとご提案</b>
+          <span>金額と進め方を書面でお出しします。ここまで費用はかかりません。</span>
+        </li>
+        <li>
+          <span class="num">4</span>
+          <b>制作・お渡し</b>
+          <span>途中で何度でも相談しながら進めます。修正は3回まで無料です。</span>
+        </li>
+      </ol>
+    </div>
+  </div>
+
+  <!-- ④ 問い合わせ -->
+  <div class="inner">
+    <div class="contact" id="contact">
+      <div class="inner">
+        <span class="label">お問い合わせ</span>
+        <h2>「ちょっと聞いてみたい」で、<br>じゅうぶんです。</h2>
+        <p>ご相談は無料です。話してみて合わないと感じたら、<br>そのままお帰りいただいて大丈夫ですよ。</p>
+        <a class="btn" href="#contact">相談してみる</a>
+        <p class="btn-note">2営業日以内にお返事します</p>
+      </div>
+    </div>
+  </div>
+
+  <p class="foot">
+    このページはデモンストレーション用に制作したサンプルLPです。<br>
+    掲載の人物・実績・料金はすべて架空で、ボタンの遷移先はありません。<br>
+    © 2026 Sample Landing Page
+  </p>
+
 </div>
-
-<script>
-(function () {
-  var root = document.documentElement;
-  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-  /* ---- reveal ----
-     以降の処理でつまずいても本文が隠れたままにならないよう、最初に片づける */
-  var risers = document.querySelectorAll('.rise');
-  function revealAll() { risers.forEach(function (el) { el.classList.add('seen'); }); }
-  if (reduce || !('IntersectionObserver' in window)) {
-    revealAll();
-  } else {
-    var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (e) {
-        if (e.isIntersecting) { e.target.classList.add('seen'); io.unobserve(e.target); }
-      });
-    }, { rootMargin: '0px 0px -8% 0px', threshold: .1 });
-    risers.forEach(function (el) {
-      var r = el.getBoundingClientRect();
-      if (r.top < window.innerHeight && r.bottom > 0) el.classList.add('seen');
-      else io.observe(el);
-    });
-    setTimeout(revealAll, 4000); // 観測が働かない環境でも本文を隠したままにしない
-  }
-
-  /* ---- theme ---- */
-  var btn = document.getElementById('themebtn');
-  function theme() {
-    var set = root.getAttribute('data-theme');
-    if (set) return set;
-    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-  }
-  function label() { btn.textContent = theme() === 'dark' ? '紙にする' : '夜にする'; }
-  btn.addEventListener('click', function () {
-    root.setAttribute('data-theme', theme() === 'dark' ? 'light' : 'dark');
-    label();
-  });
-  new MutationObserver(label).observe(root, { attributes: true, attributeFilter: ['data-theme'] });
-  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', label);
-  label();
-
-  /* ---- sticky dock : ヒーローを過ぎたら出す ---- */
-  var dock = document.getElementById('dock');
-  var hero = document.querySelector('.hero');
-  var final = document.getElementById('follow');
-  function updateDock() {
-    var pastHero = hero.getBoundingClientRect().bottom < 0;
-    var atFinal = final.getBoundingClientRect().top < window.innerHeight;
-    dock.classList.toggle('up', pastHero && !atFinal);
-  }
-  window.addEventListener('scroll', updateDock, { passive: true });
-  window.addEventListener('resize', updateDock);
-  updateDock();
-
-  /* ---- demo links ---- */
-  var toast = document.getElementById('toast');
-  var toastTimer;
-  document.querySelectorAll('[data-demo]').forEach(function (el) {
-    el.addEventListener('click', function (e) {
-      e.preventDefault();
-      toast.textContent = 'デモのため、リンク先はありません。';
-      toast.classList.add('on');
-      clearTimeout(toastTimer);
-      toastTimer = setTimeout(function () { toast.classList.remove('on'); }, 2200);
-    });
-  });
-})();
-</script>
 <!-- ARTIFACT:END -->
 </body>
 </html>
