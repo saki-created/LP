@@ -55,6 +55,8 @@
 
   .page {
     position: relative;
+    background: #E9E9E2; /* カスタムプロパティが効かない環境向けの素の値 */
+    color: #15224E;
     background: var(--paper);
     color: var(--text);
     font-family: var(--sans);
@@ -227,11 +229,11 @@
   .final { background: var(--ink); color: var(--paper); }
   .final .h2 { color: var(--paper); }
   .final .eyebrow { color: var(--pink-flat); }
-  .final p.lede { color: color-mix(in srgb, var(--paper) 72%, transparent); }
+  .final p.lede { color: var(--paper); opacity: .78; }
   .final .btn-ghost { border-color: var(--paper); color: var(--paper); }
   .final .btn-ghost:hover { box-shadow: 4px 4px 0 rgba(255,255,255,.25); }
   .final-cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
-  .final-note { font-size: 12.5px; margin: 18px 0 0; color: color-mix(in srgb, var(--paper) 62%, transparent); }
+  .final-note { font-size: 12.5px; margin: 18px 0 0; color: var(--paper); opacity: .66; }
 
   /* ================= sticky mobile cta ================= */
   .dock {
@@ -261,16 +263,21 @@
   .toast.on { opacity: 1; transform: translate(-50%, 0); }
 
   /* ================= reveal ================= */
-  .rise { opacity: 0; transform: translateY(14px); transition: opacity .6s ease, transform .6s ease; }
-  .rise.seen { opacity: 1; transform: none; }
+  /* JSが動く環境でだけ隠す。スクリプトが止まっても本文は必ず見える */
+  :root.js-anim .rise { opacity: 0; transform: translateY(14px); transition: opacity .6s ease, transform .6s ease; }
+  :root.js-anim .rise.seen { opacity: 1; transform: none; }
   @media (prefers-reduced-motion: reduce) {
-    .rise { opacity: 1; transform: none; transition: none; }
+    :root.js-anim .rise { opacity: 1; transform: none; transition: none; }
     .btn:hover, .post:hover { transform: none; }
     .dock { transition: none; }
   }
   html { scroll-behavior: smooth; }
   @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 </style>
+<script>
+  /* 本文を隠すのはJSが生きているときだけ。描画前に付けてチラつきを防ぐ */
+  document.documentElement.classList.add('js-anim');
+</script>
 </head>
 <body>
 <div class="page">
@@ -492,23 +499,8 @@
   var root = document.documentElement;
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  /* ---- theme ---- */
-  var btn = document.getElementById('themebtn');
-  function theme() {
-    var set = root.getAttribute('data-theme');
-    if (set) return set;
-    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-  }
-  function label() { btn.textContent = theme() === 'dark' ? '紙にする' : '夜にする'; }
-  btn.addEventListener('click', function () {
-    root.setAttribute('data-theme', theme() === 'dark' ? 'light' : 'dark');
-    label();
-  });
-  new MutationObserver(label).observe(root, { attributes: true, attributeFilter: ['data-theme'] });
-  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', label);
-  label();
-
-  /* ---- reveal ---- */
+  /* ---- reveal ----
+     以降の処理でつまずいても本文が隠れたままにならないよう、最初に片づける */
   var risers = document.querySelectorAll('.rise');
   function revealAll() { risers.forEach(function (el) { el.classList.add('seen'); }); }
   if (reduce || !('IntersectionObserver' in window)) {
@@ -526,6 +518,22 @@
     });
     setTimeout(revealAll, 4000); // 観測が働かない環境でも本文を隠したままにしない
   }
+
+  /* ---- theme ---- */
+  var btn = document.getElementById('themebtn');
+  function theme() {
+    var set = root.getAttribute('data-theme');
+    if (set) return set;
+    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  }
+  function label() { btn.textContent = theme() === 'dark' ? '紙にする' : '夜にする'; }
+  btn.addEventListener('click', function () {
+    root.setAttribute('data-theme', theme() === 'dark' ? 'light' : 'dark');
+    label();
+  });
+  new MutationObserver(label).observe(root, { attributes: true, attributeFilter: ['data-theme'] });
+  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', label);
+  label();
 
   /* ---- sticky dock : ヒーローを過ぎたら出す ---- */
   var dock = document.getElementById('dock');
