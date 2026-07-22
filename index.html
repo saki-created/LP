@@ -1,279 +1,467 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ja">
 <head>
-<meta charset="utf-8">
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>にしむら はる｜小さなお店のデザイン（自己紹介サンプルLP）</title>
-<meta name="description" content="サンプルLPです。架空のデザイナーの自己紹介ランディングページ。">
-<meta name="robots" content="noindex">
-<!-- ARTIFACT:START -->
+<title>頑張り不足じゃない。管理が、バラバラなだけ。｜サキ｜1人サロンの『うら側整え屋』</title>
+<meta name="description" content="技術はある。お客様も来ている。それなのに不安が消えない。エステ歴18年、現場で管理を任されてきた立場から見つけた「うら側の整え方」をnoteでお話ししています。">
+<link rel="canonical" href="https://note.com/saki_created/n/ncfe49e5db8fa">
+
+<!-- SNSでシェアされた時の見え方 -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="頑張り不足じゃない。管理が、バラバラなだけ。">
+<meta property="og:description" content="技術はある。お客様も来ている。それなのに不安が消えないあなたへ。1人サロンの『うら側整え屋』サキ">
+<meta property="og:image" content="images/ogp.jpg">
+<meta name="twitter:card" content="summary_large_image">
+
+<!-- タブに出る小さなアイコン（ファビコン） -->
+<link rel="icon" href="images/icon.png">
+<link rel="apple-touch-icon" href="images/icon.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@400;500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
+
 <style>
-  /* ============ 色 ============ */
-  :root {
-    --bg:      #F3F7F4;
-    --card:    #FFFFFF;
-    --text:    #3B4A45;
-    --soft:    #6E7F79;
-    --apricot: #D97434;
-    --apricot-bright: #F2A65A;
-    --sage:    #7FAF9C;
-    --sage-pale: #E4EFE9;
-    --peach-pale: #FBEEE2;
-    --edge:    #DCE7E1;
-  }
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --bg:      #232B29;
-      --card:    #2C3634;
-      --text:    #EAF0ED;
-      --soft:    #A9BBB4;
-      --apricot: #F2A65A;
-      --apricot-bright: #F2A65A;
-      --sage:    #8FC0AD;
-      --sage-pale: #2F3D39;
-      --peach-pale: #3A342E;
-      --edge:    #3C4845;
-    }
-  }
-  :root[data-theme="light"] {
-    --bg:#F3F7F4; --card:#FFFFFF; --text:#3B4A45; --soft:#6E7F79;
-    --apricot:#D97434; --apricot-bright:#F2A65A; --sage:#7FAF9C;
-    --sage-pale:#E4EFE9; --peach-pale:#FBEEE2; --edge:#DCE7E1;
-  }
-  :root[data-theme="dark"] {
-    --bg:#232B29; --card:#2C3634; --text:#EAF0ED; --soft:#A9BBB4;
-    --apricot:#F2A65A; --apricot-bright:#F2A65A; --sage:#8FC0AD;
-    --sage-pale:#2F3D39; --peach-pale:#3A342E; --edge:#3C4845;
-  }
+/* ===== 色と基本設定 ===== */
+:root{
+  --base:#FCF8F4;        /* 生成り（いちばん広い背景） */
+  --beige:#EFE5DA;       /* ベージュ（区切りの背景） */
+  --pink:#C99A96;        /* くすみピンク（見出し・線） */
+  --pink-soft:#F3E3E0;   /* くすみピンクの薄いほう */
+  --accent:#A82C5E;      /* マゼンタピンク（落ち着いたトーン。ボタンだけに使う） */
+  --ink:#463B36;         /* 文字色 */
+  --ink-soft:#6E625C;    /* 補足の文字色 */
+  --mincho:"Zen Old Mincho",serif;
+  --gothic:"Zen Kaku Gothic New",sans-serif;
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0;
+  background:var(--base);
+  color:var(--ink);
+  font-family:var(--gothic);
+  font-size:16px;
+  line-height:2;
+  letter-spacing:.04em;
+  overflow-x:hidden;          /* 横スクロール事故の防止 */
+  -webkit-text-size-adjust:100%;
+}
+img{max-width:100%;height:auto;display:block;}
+a{color:inherit;}
 
-  * { box-sizing: border-box; }
+.wrap{width:100%;max-width:720px;margin:0 auto;padding:0 24px;}
+section{padding:80px 0;}
+.sec-beige{background:var(--beige);}
+.sec-pink{background:var(--pink-soft);}
 
-  .page {
-    background: #F3F7F4;          /* 変数が使えない環境でも必ず色がつくように */
-    color: #3B4A45;
-    background: var(--bg);
-    color: var(--text);
-    font-family: "Hiragino Maru Gothic ProN", "ヒラギノ丸ゴ ProN W4",
-                 "Hiragino Kaku Gothic ProN", "Yu Gothic UI", "Yu Gothic",
-                 Meiryo, sans-serif;
-    font-size: 16px;
-    line-height: 2;
-    letter-spacing: .03em;
-    -webkit-font-smoothing: antialiased;
-  }
+/* ===== 見出し ===== */
+h2{
+  font-family:var(--mincho);
+  font-size:24px;
+  line-height:1.7;
+  font-weight:500;
+  margin:0 0 40px;
+  text-align:center;
+}
+h2 .en{
+  display:block;
+  font-family:var(--gothic);
+  font-size:11px;
+  letter-spacing:.3em;
+  color:var(--pink);
+  margin-bottom:12px;
+}
+h3{font-family:var(--mincho);font-size:19px;line-height:1.7;font-weight:500;margin:0 0 12px;}
+p{margin:0 0 1.4em;}
+p:last-child{margin-bottom:0;}
 
-  .inner { max-width: 720px; margin-left: auto; margin-right: auto; padding-left: 24px; padding-right: 24px; }
+/* ===== ふわっと出る動き（JSなしで動きます） ===== */
+@keyframes rise{from{opacity:0;transform:translateY(18px);}to{opacity:1;transform:none;}}
+.rise{animation:rise .9s both;}
+.d1{animation-delay:.15s;} .d2{animation-delay:.3s;} .d3{animation-delay:.45s;} .d4{animation-delay:.6s;}
+@media(prefers-reduced-motion:reduce){.rise{animation:none;}}
 
-  /* ============ 共通のリズム ============ */
-  .section { padding-top: 76px; padding-bottom: 76px; }
-  .label {
-    display: inline-block;
-    font-size: 12.5px; letter-spacing: .16em;
-    color: var(--apricot);
-    background: var(--peach-pale);
-    padding: 5px 15px; border-radius: 999px;
-    margin-bottom: 20px;
-  }
-  h2 {
-    font-size: 27px; line-height: 1.7; font-weight: 700;
-    margin-top: 0; margin-bottom: 20px; letter-spacing: .02em;
-  }
-  p { margin-top: 0; }
+/* ===== ヘッダー ===== */
+header{
+  position:sticky;top:0;z-index:50;
+  background:rgba(252,248,244,.92);
+  backdrop-filter:saturate(1.2) blur(8px);
+  border-bottom:1px solid rgba(201,154,150,.25);
+}
+.header-in{
+  max-width:720px;margin:0 auto;padding:10px 16px;
+  display:flex;align-items:center;gap:10px;
+}
+.avatar{
+  width:36px;height:36px;border-radius:50%;flex:0 0 36px;
+  background:linear-gradient(140deg,var(--pink-soft),var(--pink));
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--mincho);font-size:15px;color:#fff;
+  overflow:hidden;
+}
+.avatar img{width:100%;height:100%;object-fit:cover;}
+.brand{line-height:1.35;min-width:0;}
+.brand b{display:block;font-family:var(--mincho);font-size:14px;font-weight:500;}
+.brand span{display:block;font-size:10px;color:var(--ink-soft);letter-spacing:.06em;}
+.header-btn{
+  margin-left:auto;flex:0 0 auto;
+  background:var(--accent);color:#fff;text-decoration:none;
+  font-size:12px;font-weight:700;letter-spacing:.05em;
+  padding:9px 14px;border-radius:999px;white-space:nowrap;
+}
 
-  /* ============ ヒーロー ============ */
-  .hero {
-    background: var(--sage-pale);
-    padding-top: 72px; padding-bottom: 88px;
-    border-bottom-left-radius: 42px; border-bottom-right-radius: 42px;
-    text-align: center;
-  }
-  .photo {
-    width: 108px; height: 108px; border-radius: 50%;
-    margin: 0 auto 24px; display: block;
-    background: var(--apricot-bright);
-    color: #FFFFFF; font-size: 40px; line-height: 108px; text-align: center;
-    letter-spacing: .05em;
-  }
-  .hero h1 {
-    font-size: 33px; line-height: 1.75; font-weight: 700;
-    margin-top: 0; margin-bottom: 18px; letter-spacing: .02em;
-  }
-  .hero h1 .accent { color: var(--apricot); }
-  .hero .name { font-size: 15px; color: var(--soft); margin-bottom: 6px; }
-  .hero .job { font-size: 14px; color: var(--soft); margin-bottom: 30px; }
+/* ===== ヒーロー ===== */
+.hero{
+  position:relative;
+  min-height:calc(100svh - 57px);
+  display:flex;align-items:center;justify-content:center;
+  text-align:center;padding:56px 24px;overflow:hidden;
+}
+.hero::before{                 /* 背景画像（images/hero.jpg を置けば自動で反映されます） */
+  content:"";position:absolute;inset:0;
+  background-color:#EFE5DA;    /* 画像が無いときの色 */
+  background-image:url("images/hero.jpg");
+  background-size:cover;
+  background-position:center;
+  background-repeat:no-repeat;
+}
+.hero::after{                  /* 文字を読みやすくする白い膜 */
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(252,248,244,.62),rgba(252,248,244,.80) 55%,rgba(252,248,244,.88));
+}
+.hero-in{position:relative;z-index:1;max-width:560px;}
+.hero-eyebrow{
+  font-size:11px;letter-spacing:.28em;color:var(--pink);
+  margin:0 0 24px;
+}
+.hero h1{
+  font-family:var(--mincho);
+  font-size:26px;line-height:1.85;font-weight:500;
+  margin:0 0 24px;letter-spacing:.01em;
+}
+.hero h1 em{font-style:normal;color:var(--accent);}
+.hero-sub{font-size:14px;line-height:2.1;color:var(--ink-soft);margin:0 0 36px;}
+.scroll-hint{
+  margin-top:36px;font-size:10px;letter-spacing:.25em;color:var(--pink);
+}
+.scroll-hint::after{
+  content:"";display:block;width:1px;height:34px;margin:10px auto 0;
+  background:linear-gradient(var(--pink),transparent);
+}
 
-  .btn {
-    display: inline-block;
-    background: var(--apricot); color: #FFFFFF;
-    font-size: 16px; font-weight: 700; letter-spacing: .04em;
-    text-decoration: none;
-    padding: 17px 40px; border-radius: 999px;
-    box-shadow: 0 6px 18px rgba(217,116,52,.28);
-  }
-  .btn:hover { background: var(--apricot-bright); }
-  .btn:focus-visible, a:focus-visible { outline: 3px solid var(--sage); outline-offset: 3px; }
-  .btn-note { font-size: 13px; color: var(--soft); margin-top: 14px; margin-bottom: 0; }
+/* ===== ボタン ===== */
+.cta{
+  display:block;width:100%;max-width:400px;margin:0 auto;
+  background:var(--accent);color:#fff;text-decoration:none;
+  text-align:center;font-weight:700;font-size:16px;letter-spacing:.04em;
+  padding:20px 20px;border-radius:999px;
+  box-shadow:0 8px 20px rgba(168,44,94,.20);
+}
+.cta small{display:block;font-size:11px;font-weight:400;opacity:.9;margin-top:4px;letter-spacing:.08em;}
+.cta-note{
+  text-align:center;font-size:12px;color:var(--ink-soft);margin:14px 0 0;
+}
+.cta-sub{
+  display:block;width:100%;max-width:400px;margin:16px auto 0;
+  border:1px solid var(--pink);color:var(--pink);
+  text-decoration:none;text-align:center;font-size:13px;font-weight:500;
+  padding:14px;border-radius:999px;background:transparent;
+}
 
-  /* ============ 共感 ============ */
-  .worry {
-    background: var(--card); border: 1px solid var(--edge);
-    border-radius: 22px; padding: 22px 26px; margin-bottom: 14px;
-    font-size: 16px;
-  }
-  .worry:last-of-type { margin-bottom: 0; }
-  .worry .quote { color: var(--sage); font-weight: 700; margin-right: 8px; }
-  .after-worry { margin-top: 30px; margin-bottom: 0; font-size: 16.5px; }
-  .after-worry strong { color: var(--apricot); }
+/* ===== 悩みリスト ===== */
+.worries{list-style:none;padding:0;margin:0 0 36px;}
+.worries li{
+  background:#fff;border-radius:14px;
+  padding:18px 20px 18px 52px;position:relative;
+  margin-bottom:12px;font-size:15px;line-height:1.8;
+  box-shadow:0 2px 10px rgba(70,59,54,.05);
+}
+.worries li::before{
+  content:"✓";position:absolute;left:20px;top:18px;
+  color:var(--pink);font-size:15px;
+}
+.worries-lead{text-align:center;font-size:15px;margin-bottom:32px;}
 
-  /* ============ 内容 ============ */
-  .menu { background: var(--card); border-radius: 26px; padding: 30px 28px; margin-bottom: 18px; border: 1px solid var(--edge); }
-  .menu:last-of-type { margin-bottom: 0; }
-  .menu h3 { font-size: 19px; margin-top: 0; margin-bottom: 10px; font-weight: 700; }
-  .menu p { color: var(--soft); font-size: 15px; margin-bottom: 0; }
-  .menu .price { display: inline-block; margin-top: 16px; font-size: 14px; color: var(--apricot); background: var(--peach-pale); padding: 4px 14px; border-radius: 999px; }
+/* ===== 一撃メッセージ ===== */
+.punch{
+  background:var(--ink);color:#F7F1EC;text-align:center;
+  padding:80px 24px;
+}
+.punch p{font-size:15px;line-height:2.2;opacity:.85;margin-bottom:1.6em;}
+.punch strong{
+  display:block;font-family:var(--mincho);font-weight:500;
+  font-size:22px;line-height:2;color:#fff;margin-bottom:.6em;letter-spacing:.01em;
+}
+.punch .mag{color:#E894B2;}
 
-  .steps { margin-top: 40px; padding-left: 0; list-style: none; }
-  .steps li { position: relative; padding-left: 52px; padding-bottom: 26px; }
-  .steps li:last-child { padding-bottom: 0; }
-  .steps .num {
-    position: absolute; left: 0; top: 4px;
-    width: 34px; height: 34px; border-radius: 50%;
-    background: var(--sage); color: #FFFFFF;
-    font-size: 15px; line-height: 34px; text-align: center;
-  }
-  .steps b { display: block; font-size: 16.5px; }
-  .steps span { color: var(--soft); font-size: 14.5px; }
+/* ===== 記事で分かること ===== */
+.points{display:grid;gap:16px;margin-bottom:40px;}
+.point{
+  background:#fff;border-radius:16px;padding:26px 24px;
+  border:1px solid rgba(201,154,150,.28);
+}
+.point .num{
+  font-family:var(--mincho);font-size:12px;letter-spacing:.2em;
+  color:var(--pink);display:block;margin-bottom:8px;
+}
+.point p{font-size:14px;line-height:1.95;color:var(--ink-soft);margin:0;}
 
-  /* ============ 問い合わせ ============ */
-  .contact {
-    background: var(--peach-pale);
-    border-radius: 42px;
-    margin-top: 30px; margin-bottom: 60px;
-    padding-top: 64px; padding-bottom: 64px;
-    text-align: center;
-  }
-  .contact h2 { margin-bottom: 14px; }
-  .contact p { color: var(--soft); font-size: 15.5px; margin-bottom: 30px; }
+/* ===== 帯の写真 ===== */
+.band{
+  height:220px;
+  background:url("images/desk.jpg") center/cover no-repeat;
+}
+@media(min-width:768px){.band{height:340px;}}
 
-  /* ============ 補足 ============ */
-  .demo {
-    background: var(--sage); color: #FFFFFF;
-    font-size: 12.5px; text-align: center; padding: 8px 16px; line-height: 1.7;
-  }
-  .foot { text-align: center; color: var(--soft); font-size: 12.5px; padding-bottom: 44px; line-height: 1.9; }
+/* ===== プロフィール ===== */
+.profile{
+  background:#fff;border-radius:20px;padding:40px 26px;
+  text-align:center;border:1px solid rgba(201,154,150,.28);
+}
+.profile .avatar-lg{
+  width:108px;height:108px;border-radius:50%;margin:0 auto 20px;
+  background:linear-gradient(140deg,var(--pink-soft),var(--pink));
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--mincho);font-size:30px;color:#fff;overflow:hidden;
+}
+.profile .avatar-lg img{width:100%;height:100%;object-fit:cover;}
+.profile .name{font-family:var(--mincho);font-size:20px;margin:0 0 4px;text-align:center;}
+.profile .role{font-size:12px;color:var(--pink);letter-spacing:.1em;margin:0 0 24px;text-align:center;}
+.profile p{font-size:14px;line-height:2.1;text-align:left;color:var(--ink-soft);}
 
-  /* ============ スマホ ============ */
-  @media (max-width: 600px) {
-    .hero h1 { font-size: 26px; }
-    h2 { font-size: 22px; }
-    .hero { padding-top: 54px; padding-bottom: 64px; border-bottom-left-radius: 30px; border-bottom-right-radius: 30px; }
-    .section { padding-top: 58px; padding-bottom: 58px; }
-    .contact { border-radius: 30px; padding-top: 50px; padding-bottom: 50px; }
-    .btn { display: block; padding-left: 20px; padding-right: 20px; }
-  }
+.years{
+  display:flex;align-items:baseline;justify-content:center;gap:6px;
+  margin:0 0 24px;
+}
+.years b{font-family:var(--mincho);font-size:56px;line-height:1;color:var(--accent);font-weight:500;}
+.years span{font-size:13px;color:var(--ink-soft);}
+
+/* ===== FAQ ===== */
+details{
+  background:#fff;border-radius:14px;margin-bottom:12px;
+  border:1px solid rgba(201,154,150,.28);overflow:hidden;
+}
+summary{
+  cursor:pointer;list-style:none;padding:20px 48px 20px 22px;
+  font-size:15px;font-weight:500;position:relative;line-height:1.7;
+}
+summary::-webkit-details-marker{display:none;}
+summary::after{
+  content:"＋";position:absolute;right:20px;top:20px;color:var(--pink);
+}
+details[open] summary::after{content:"−";}
+details .body{padding:0 22px 22px;font-size:14px;line-height:2;color:var(--ink-soft);}
+
+/* ===== 最後のCTA ===== */
+.final{text-align:center;}
+.final h2{margin-bottom:20px;}
+.final .lead{font-size:14px;line-height:2.1;color:var(--ink-soft);margin-bottom:36px;}
+
+/* ===== フッター ===== */
+footer{
+  background:var(--ink);color:#CFC3BC;text-align:center;
+  padding:44px 24px;font-size:12px;line-height:2;
+}
+footer .links{margin-bottom:18px;}
+footer a{color:#F0E4DE;text-decoration:none;margin:0 12px;font-size:13px;}
+footer .copy{font-size:11px;opacity:.6;letter-spacing:.08em;}
+
+/* ===== パソコンで見たとき ===== */
+@media(min-width:768px){
+  body{font-size:17px;}
+  section{padding:110px 0;}
+  h2{font-size:30px;}
+  .hero h1{font-size:40px;}
+  .punch strong{font-size:30px;}
+  .hero-sub{font-size:15px;}
+  .points{grid-template-columns:1fr 1fr;}
+  .profile{padding:56px 48px;}
+}
 </style>
 </head>
 <body>
-<div class="page">
 
-  <p class="demo" style="margin:0">これはサンプルのLPです。「にしむら はる」は架空の人物で、内容・料金はすべて創作です。</p>
-
-  <!-- ① ヒーロー -->
-  <div class="hero">
-    <div class="inner">
-      <div class="photo">は</div>
-      <p class="name">にしむら はる</p>
-      <h1>小さなお店の<br><span class="accent">「らしさ」</span>を、かたちにします。</h1>
-      <p class="job">ロゴ・チラシ・お店のこと｜フリーランス9年目</p>
-      <a class="btn" href="#contact">まずは気軽に相談する</a>
-      <p class="btn-note">ご相談は無料です。売り込みはしません。</p>
+<header>
+  <div class="header-in">
+    <!-- アイコン画像を images/icon.png に置くと、自動でここに表示されます -->
+    <div class="avatar"><img src="images/icon.png" alt="サキ"></div>
+    <div class="brand">
+      <b>サキ</b>
+      <span>1人サロンの『うら側整え屋』</span>
     </div>
+    <a class="header-btn" href="https://note.com/saki_created/n/ncfe49e5db8fa" target="_blank" rel="noopener">記事を読む</a>
   </div>
+</header>
 
-  <!-- ② 共感 -->
-  <div class="section">
-    <div class="inner">
-      <span class="label">こんなこと、ありませんか</span>
-      <h2>「うまく言葉にできない」を、<br>そのまま持ってきてください。</h2>
-
-      <div class="worry"><span class="quote">“</span>やりたいことはあるのに、どう伝えたらいいか分からない。</div>
-      <div class="worry"><span class="quote">“</span>デザインを頼むのは、なんだか敷居が高い気がする。</div>
-      <div class="worry"><span class="quote">“</span>前に頼んだとき、専門用語が多くて話しづらかった。</div>
-      <div class="worry"><span class="quote">“</span>予算がどれくらいかかるのか、そもそも見当がつかない。</div>
-
-      <p class="after-worry">わたしの仕事の半分は、<strong>お話を聞くこと</strong>です。まとまっていなくて大丈夫。「なんとなくこんな感じ」から一緒にほどいていきます。</p>
-    </div>
+<!-- ===== ヒーロー ===== -->
+<div class="hero">
+  <div class="hero-in">
+    <p class="hero-eyebrow rise">FOR SALON OWNERS</p>
+    <h1 class="rise d1">頑張り不足じゃない。<br>管理が、<em>バラバラ</em>なだけ。</h1>
+    <p class="hero-sub rise d2">
+      技術はある。お客様も来ている。<br>
+      それなのに、不安が消えないあなたへ。
+    </p>
+    <a class="cta rise d3" href="https://note.com/saki_created/n/ncfe49e5db8fa" target="_blank" rel="noopener">
+      無料の記事を読んでみる
+      <small>1人サロン経営OS ／ note</small>
+    </a>
+    <p class="scroll-hint rise d4">SCROLL</p>
   </div>
-
-  <!-- ③ 内容 -->
-  <div class="section" style="background:var(--card)">
-    <div class="inner">
-      <span class="label">できること</span>
-      <h2>お店まわりのことなら、<br>ひととおりお引き受けします。</h2>
-
-      <div class="menu" style="background:var(--bg)">
-        <h3>ロゴをつくる</h3>
-        <p>お店の名前の由来からうかがって、看板にも名刺にも使える形に整えます。カラー違い・白黒版までお渡しします。</p>
-        <span class="price">88,000円〜</span>
-      </div>
-
-      <div class="menu" style="background:var(--bg)">
-        <h3>チラシ・メニューをつくる</h3>
-        <p>写真がなくても大丈夫です。撮影からご一緒することもできます。印刷の手配までまとめてお任せいただけます。</p>
-        <span class="price">44,000円〜</span>
-      </div>
-
-      <div class="menu" style="background:var(--bg)">
-        <h3>相談だけする</h3>
-        <p>つくらなくても構いません。「これで合っているのかな」を60分で一緒に確かめる時間です。オンラインでどうぞ。</p>
-        <span class="price">5,500円 / 60分</span>
-      </div>
-
-      <ol class="steps">
-        <li>
-          <span class="num">1</span>
-          <b>お問い合わせ</b>
-          <span>フォームに一言だけで大丈夫です。2営業日以内にお返事します。</span>
-        </li>
-        <li>
-          <span class="num">2</span>
-          <b>お話をうかがう（60分・無料）</b>
-          <span>オンラインでも、お店にうかがっても。この時点でのお断りも歓迎です。</span>
-        </li>
-        <li>
-          <span class="num">3</span>
-          <b>お見積もりとご提案</b>
-          <span>金額と進め方を書面でお出しします。ここまで費用はかかりません。</span>
-        </li>
-        <li>
-          <span class="num">4</span>
-          <b>制作・お渡し</b>
-          <span>途中で何度でも相談しながら進めます。修正は3回まで無料です。</span>
-        </li>
-      </ol>
-    </div>
-  </div>
-
-  <!-- ④ 問い合わせ -->
-  <div class="inner">
-    <div class="contact" id="contact">
-      <div class="inner">
-        <span class="label">お問い合わせ</span>
-        <h2>「ちょっと聞いてみたい」で、<br>じゅうぶんです。</h2>
-        <p>ご相談は無料です。話してみて合わないと感じたら、<br>そのままお帰りいただいて大丈夫ですよ。</p>
-        <a class="btn" href="#contact">相談してみる</a>
-        <p class="btn-note">2営業日以内にお返事します</p>
-      </div>
-    </div>
-  </div>
-
-  <p class="foot">
-    このページはデモンストレーション用に制作したサンプルLPです。<br>
-    掲載の人物・実績・料金はすべて架空で、ボタンの遷移先はありません。<br>
-    © 2026 Sample Landing Page
-  </p>
-
 </div>
-<!-- ARTIFACT:END -->
+
+<!-- ===== 共感 ===== -->
+<section>
+  <div class="wrap">
+    <h2><span class="en">WORRIES</span>こんなこと、<br>ありませんか？</h2>
+    <p class="worries-lead">夢だった、1人サロン。<br>それなのに、心はいつも落ち着かない。</p>
+    <ul class="worries">
+      <li>売上が安定しない</li>
+      <li>予約が空くと焦る</li>
+      <li>当日キャンセルがある</li>
+      <li>何から整えればいいか分からない</li>
+      <li>やることが多すぎる</li>
+    </ul>
+    <p style="text-align:center;font-size:14px;color:var(--ink-soft);">
+      ひとつでも当てはまったなら、<br>この先を読んでみてください。
+    </p>
+  </div>
+</section>
+
+<!-- ===== 一撃 ===== -->
+<div class="punch">
+  <p>毎日こんなに頑張っているのに、<br>どうしてうまくいかないんだろう。</p>
+  <strong>それは、<span class="mag">頑張り不足</span>じゃない。</strong>
+  <strong>「管理が、バラバラ」<br>なだけです。</strong>
+  <p style="margin-top:1.6em;">
+    予約も、お金も、お客様の記録も、やることリストも。<br>
+    ぜんぶ別々の場所にある。<br>
+    だから、頭の中がいつも忙しい。
+  </p>
+</div>
+
+<!-- ===== 記事で分かること ===== -->
+<section class="sec-beige">
+  <div class="wrap">
+    <h2><span class="en">WHAT YOU GET</span>記事で、<br>お話ししていること</h2>
+    <div class="points">
+      <div class="point">
+        <span class="num">01</span>
+        <h3>不安の正体</h3>
+        <p>なぜ売上が読めないと、こんなに心がざわつくのか。まず、その理由をほどいていきます。</p>
+      </div>
+      <div class="point">
+        <span class="num">02</span>
+        <h3>バラバラの直し方</h3>
+        <p>予約・お金・お客様の記録。散らばったものを、どうひとつにまとめていくか。</p>
+      </div>
+      <div class="point">
+        <span class="num">03</span>
+        <h3>何から手をつけるか</h3>
+        <p>やることが多すぎて動けない時に、いちばん最初に整える場所はどこか。</p>
+      </div>
+      <div class="point">
+        <span class="num">04</span>
+        <h3>続けられる形にする</h3>
+        <p>一度整えて終わり、にしない。忙しい日でも回りつづける「仕組み」の考え方。</p>
+      </div>
+    </div>
+    <a class="cta" href="https://note.com/saki_created/n/ncfe49e5db8fa" target="_blank" rel="noopener">
+      続きをnoteで読む
+      <small>無料でぜんぶ読めます</small>
+    </a>
+  </div>
+</section>
+
+<div class="band" role="img" aria-label="ノートとカレンダーが置かれた、整えられたサロンのデスク"></div>
+
+<!-- ===== プロフィール ===== -->
+<section>
+  <div class="wrap">
+    <h2><span class="en">PROFILE</span>書いている人</h2>
+    <div class="profile">
+      <div class="avatar-lg"><img src="images/icon.png" alt="サキ"></div>
+      <p class="name">サキ</p>
+      <p class="role">1人サロンの『うら側整え屋』</p>
+
+      <div class="years"><b>18</b><span>年、エステの現場にいます</span></div>
+
+      <p>
+        私はサロンのオーナーではありません。<br>
+        現場で施術をしながら、<strong>お店の「うら側」の管理を任されてきた立場</strong>です。
+      </p>
+      <p>
+        だから、経営の理屈はうまく語れません。<br>
+        でも、予約表が埋まらない日の空気も、当日キャンセルの電話を切ったあとの気持ちも、知っています。
+      </p>
+      <p>
+        技術のある人が、うら側がバラバラなせいで自信をなくしていく。<br>
+        それが、いちばん、もったいないと思っています。
+      </p>
+      <p>
+        難しい言葉は使いません。<br>
+        「整える」という感覚のまま、受け取ってもらえたら嬉しいです。
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section class="sec-pink">
+  <div class="wrap">
+    <h2><span class="en">Q &amp; A</span>読む前に、<br>気になること</h2>
+
+    <details>
+      <summary>経営や数字が苦手でも、大丈夫ですか？</summary>
+      <div class="body">大丈夫です。むしろ、そういう方に向けて書きました。数式も専門用語も出てきません。「どこに何があるか分からない」を「ここを見ればいい」に変える、それだけの話です。</div>
+    </details>
+
+    <details>
+      <summary>忙しくて、整える時間がありません。</summary>
+      <div class="body">その状態こそ、いちばん読んでほしいです。時間がないのは、やることが多いからではなく、探す時間・思い出す時間が毎日積み重なっているからかもしれません。まずは記事だけ、休憩中にどうぞ。</div>
+    </details>
+
+    <details>
+      <summary>開業したばかりでも、役に立ちますか？</summary>
+      <div class="body">はい。むしろ早いほうが楽です。散らかってから片づけるより、散らかる前に置き場所を決めておくほうが、ずっと少ない力で済みます。</div>
+    </details>
+
+    <details>
+      <summary>結局、何か売り込まれませんか？</summary>
+      <div class="body">記事は最後まで無料で読めます。読んで「なるほど」と思って終わっても、まったく問題ありません。無理におすすめすることはしませんので、安心して読んでみてください。</div>
+    </details>
+  </div>
+</section>
+
+<!-- ===== 最後のCTA ===== -->
+<section class="final">
+  <div class="wrap">
+    <h2><span class="en">LAST</span>不安なままの毎日を、<br>あと何ヶ月つづけますか。</h2>
+    <p class="lead">
+      今日すぐ、全部を変えなくて大丈夫です。<br>
+      まずは、読むだけ。<br>
+      それだけで、頭の中が少し静かになるはずです。
+    </p>
+    <a class="cta" href="https://note.com/saki_created/n/ncfe49e5db8fa" target="_blank" rel="noopener">
+      無料の記事を読んでみる
+      <small>売上に振り回されないための【1人サロン経営OS】</small>
+    </a>
+    <p class="cta-note">※ noteのページが開きます</p>
+    <a class="cta-sub" href="https://www.threads.com/@saki.created_aesth" target="_blank" rel="noopener">
+      Threadsで、日々の気づきも届けています
+    </a>
+  </div>
+</section>
+
+<footer>
+  <div class="links">
+    <a href="https://note.com/saki_created/n/ncfe49e5db8fa" target="_blank" rel="noopener">note</a>
+    <a href="https://www.threads.com/@saki.created_aesth" target="_blank" rel="noopener">Threads</a>
+  </div>
+  <p class="copy">&copy; 2026 サキ｜1人サロンの『うら側整え屋』</p>
+</footer>
+
 </body>
 </html>

@@ -1,0 +1,279 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>にしむら はる｜小さなお店のデザイン（自己紹介サンプルLP）</title>
+<meta name="description" content="サンプルLPです。架空のデザイナーの自己紹介ランディングページ。">
+<meta name="robots" content="noindex">
+<!-- ARTIFACT:START -->
+<style>
+  /* ============ 色 ============ */
+  :root {
+    --bg:      #F3F7F4;
+    --card:    #FFFFFF;
+    --text:    #3B4A45;
+    --soft:    #6E7F79;
+    --apricot: #D97434;
+    --apricot-bright: #F2A65A;
+    --sage:    #7FAF9C;
+    --sage-pale: #E4EFE9;
+    --peach-pale: #FBEEE2;
+    --edge:    #DCE7E1;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg:      #232B29;
+      --card:    #2C3634;
+      --text:    #EAF0ED;
+      --soft:    #A9BBB4;
+      --apricot: #F2A65A;
+      --apricot-bright: #F2A65A;
+      --sage:    #8FC0AD;
+      --sage-pale: #2F3D39;
+      --peach-pale: #3A342E;
+      --edge:    #3C4845;
+    }
+  }
+  :root[data-theme="light"] {
+    --bg:#F3F7F4; --card:#FFFFFF; --text:#3B4A45; --soft:#6E7F79;
+    --apricot:#D97434; --apricot-bright:#F2A65A; --sage:#7FAF9C;
+    --sage-pale:#E4EFE9; --peach-pale:#FBEEE2; --edge:#DCE7E1;
+  }
+  :root[data-theme="dark"] {
+    --bg:#232B29; --card:#2C3634; --text:#EAF0ED; --soft:#A9BBB4;
+    --apricot:#F2A65A; --apricot-bright:#F2A65A; --sage:#8FC0AD;
+    --sage-pale:#2F3D39; --peach-pale:#3A342E; --edge:#3C4845;
+  }
+
+  * { box-sizing: border-box; }
+
+  .page {
+    background: #F3F7F4;          /* 変数が使えない環境でも必ず色がつくように */
+    color: #3B4A45;
+    background: var(--bg);
+    color: var(--text);
+    font-family: "Hiragino Maru Gothic ProN", "ヒラギノ丸ゴ ProN W4",
+                 "Hiragino Kaku Gothic ProN", "Yu Gothic UI", "Yu Gothic",
+                 Meiryo, sans-serif;
+    font-size: 16px;
+    line-height: 2;
+    letter-spacing: .03em;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .inner { max-width: 720px; margin-left: auto; margin-right: auto; padding-left: 24px; padding-right: 24px; }
+
+  /* ============ 共通のリズム ============ */
+  .section { padding-top: 76px; padding-bottom: 76px; }
+  .label {
+    display: inline-block;
+    font-size: 12.5px; letter-spacing: .16em;
+    color: var(--apricot);
+    background: var(--peach-pale);
+    padding: 5px 15px; border-radius: 999px;
+    margin-bottom: 20px;
+  }
+  h2 {
+    font-size: 27px; line-height: 1.7; font-weight: 700;
+    margin-top: 0; margin-bottom: 20px; letter-spacing: .02em;
+  }
+  p { margin-top: 0; }
+
+  /* ============ ヒーロー ============ */
+  .hero {
+    background: var(--sage-pale);
+    padding-top: 72px; padding-bottom: 88px;
+    border-bottom-left-radius: 42px; border-bottom-right-radius: 42px;
+    text-align: center;
+  }
+  .photo {
+    width: 108px; height: 108px; border-radius: 50%;
+    margin: 0 auto 24px; display: block;
+    background: var(--apricot-bright);
+    color: #FFFFFF; font-size: 40px; line-height: 108px; text-align: center;
+    letter-spacing: .05em;
+  }
+  .hero h1 {
+    font-size: 33px; line-height: 1.75; font-weight: 700;
+    margin-top: 0; margin-bottom: 18px; letter-spacing: .02em;
+  }
+  .hero h1 .accent { color: var(--apricot); }
+  .hero .name { font-size: 15px; color: var(--soft); margin-bottom: 6px; }
+  .hero .job { font-size: 14px; color: var(--soft); margin-bottom: 30px; }
+
+  .btn {
+    display: inline-block;
+    background: var(--apricot); color: #FFFFFF;
+    font-size: 16px; font-weight: 700; letter-spacing: .04em;
+    text-decoration: none;
+    padding: 17px 40px; border-radius: 999px;
+    box-shadow: 0 6px 18px rgba(217,116,52,.28);
+  }
+  .btn:hover { background: var(--apricot-bright); }
+  .btn:focus-visible, a:focus-visible { outline: 3px solid var(--sage); outline-offset: 3px; }
+  .btn-note { font-size: 13px; color: var(--soft); margin-top: 14px; margin-bottom: 0; }
+
+  /* ============ 共感 ============ */
+  .worry {
+    background: var(--card); border: 1px solid var(--edge);
+    border-radius: 22px; padding: 22px 26px; margin-bottom: 14px;
+    font-size: 16px;
+  }
+  .worry:last-of-type { margin-bottom: 0; }
+  .worry .quote { color: var(--sage); font-weight: 700; margin-right: 8px; }
+  .after-worry { margin-top: 30px; margin-bottom: 0; font-size: 16.5px; }
+  .after-worry strong { color: var(--apricot); }
+
+  /* ============ 内容 ============ */
+  .menu { background: var(--card); border-radius: 26px; padding: 30px 28px; margin-bottom: 18px; border: 1px solid var(--edge); }
+  .menu:last-of-type { margin-bottom: 0; }
+  .menu h3 { font-size: 19px; margin-top: 0; margin-bottom: 10px; font-weight: 700; }
+  .menu p { color: var(--soft); font-size: 15px; margin-bottom: 0; }
+  .menu .price { display: inline-block; margin-top: 16px; font-size: 14px; color: var(--apricot); background: var(--peach-pale); padding: 4px 14px; border-radius: 999px; }
+
+  .steps { margin-top: 40px; padding-left: 0; list-style: none; }
+  .steps li { position: relative; padding-left: 52px; padding-bottom: 26px; }
+  .steps li:last-child { padding-bottom: 0; }
+  .steps .num {
+    position: absolute; left: 0; top: 4px;
+    width: 34px; height: 34px; border-radius: 50%;
+    background: var(--sage); color: #FFFFFF;
+    font-size: 15px; line-height: 34px; text-align: center;
+  }
+  .steps b { display: block; font-size: 16.5px; }
+  .steps span { color: var(--soft); font-size: 14.5px; }
+
+  /* ============ 問い合わせ ============ */
+  .contact {
+    background: var(--peach-pale);
+    border-radius: 42px;
+    margin-top: 30px; margin-bottom: 60px;
+    padding-top: 64px; padding-bottom: 64px;
+    text-align: center;
+  }
+  .contact h2 { margin-bottom: 14px; }
+  .contact p { color: var(--soft); font-size: 15.5px; margin-bottom: 30px; }
+
+  /* ============ 補足 ============ */
+  .demo {
+    background: var(--sage); color: #FFFFFF;
+    font-size: 12.5px; text-align: center; padding: 8px 16px; line-height: 1.7;
+  }
+  .foot { text-align: center; color: var(--soft); font-size: 12.5px; padding-bottom: 44px; line-height: 1.9; }
+
+  /* ============ スマホ ============ */
+  @media (max-width: 600px) {
+    .hero h1 { font-size: 26px; }
+    h2 { font-size: 22px; }
+    .hero { padding-top: 54px; padding-bottom: 64px; border-bottom-left-radius: 30px; border-bottom-right-radius: 30px; }
+    .section { padding-top: 58px; padding-bottom: 58px; }
+    .contact { border-radius: 30px; padding-top: 50px; padding-bottom: 50px; }
+    .btn { display: block; padding-left: 20px; padding-right: 20px; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <p class="demo" style="margin:0">これはサンプルのLPです。「にしむら はる」は架空の人物で、内容・料金はすべて創作です。</p>
+
+  <!-- ① ヒーロー -->
+  <div class="hero">
+    <div class="inner">
+      <div class="photo">は</div>
+      <p class="name">にしむら はる</p>
+      <h1>小さなお店の<br><span class="accent">「らしさ」</span>を、かたちにします。</h1>
+      <p class="job">ロゴ・チラシ・お店のこと｜フリーランス9年目</p>
+      <a class="btn" href="#contact">まずは気軽に相談する</a>
+      <p class="btn-note">ご相談は無料です。売り込みはしません。</p>
+    </div>
+  </div>
+
+  <!-- ② 共感 -->
+  <div class="section">
+    <div class="inner">
+      <span class="label">こんなこと、ありませんか</span>
+      <h2>「うまく言葉にできない」を、<br>そのまま持ってきてください。</h2>
+
+      <div class="worry"><span class="quote">“</span>やりたいことはあるのに、どう伝えたらいいか分からない。</div>
+      <div class="worry"><span class="quote">“</span>デザインを頼むのは、なんだか敷居が高い気がする。</div>
+      <div class="worry"><span class="quote">“</span>前に頼んだとき、専門用語が多くて話しづらかった。</div>
+      <div class="worry"><span class="quote">“</span>予算がどれくらいかかるのか、そもそも見当がつかない。</div>
+
+      <p class="after-worry">わたしの仕事の半分は、<strong>お話を聞くこと</strong>です。まとまっていなくて大丈夫。「なんとなくこんな感じ」から一緒にほどいていきます。</p>
+    </div>
+  </div>
+
+  <!-- ③ 内容 -->
+  <div class="section" style="background:var(--card)">
+    <div class="inner">
+      <span class="label">できること</span>
+      <h2>お店まわりのことなら、<br>ひととおりお引き受けします。</h2>
+
+      <div class="menu" style="background:var(--bg)">
+        <h3>ロゴをつくる</h3>
+        <p>お店の名前の由来からうかがって、看板にも名刺にも使える形に整えます。カラー違い・白黒版までお渡しします。</p>
+        <span class="price">88,000円〜</span>
+      </div>
+
+      <div class="menu" style="background:var(--bg)">
+        <h3>チラシ・メニューをつくる</h3>
+        <p>写真がなくても大丈夫です。撮影からご一緒することもできます。印刷の手配までまとめてお任せいただけます。</p>
+        <span class="price">44,000円〜</span>
+      </div>
+
+      <div class="menu" style="background:var(--bg)">
+        <h3>相談だけする</h3>
+        <p>つくらなくても構いません。「これで合っているのかな」を60分で一緒に確かめる時間です。オンラインでどうぞ。</p>
+        <span class="price">5,500円 / 60分</span>
+      </div>
+
+      <ol class="steps">
+        <li>
+          <span class="num">1</span>
+          <b>お問い合わせ</b>
+          <span>フォームに一言だけで大丈夫です。2営業日以内にお返事します。</span>
+        </li>
+        <li>
+          <span class="num">2</span>
+          <b>お話をうかがう（60分・無料）</b>
+          <span>オンラインでも、お店にうかがっても。この時点でのお断りも歓迎です。</span>
+        </li>
+        <li>
+          <span class="num">3</span>
+          <b>お見積もりとご提案</b>
+          <span>金額と進め方を書面でお出しします。ここまで費用はかかりません。</span>
+        </li>
+        <li>
+          <span class="num">4</span>
+          <b>制作・お渡し</b>
+          <span>途中で何度でも相談しながら進めます。修正は3回まで無料です。</span>
+        </li>
+      </ol>
+    </div>
+  </div>
+
+  <!-- ④ 問い合わせ -->
+  <div class="inner">
+    <div class="contact" id="contact">
+      <div class="inner">
+        <span class="label">お問い合わせ</span>
+        <h2>「ちょっと聞いてみたい」で、<br>じゅうぶんです。</h2>
+        <p>ご相談は無料です。話してみて合わないと感じたら、<br>そのままお帰りいただいて大丈夫ですよ。</p>
+        <a class="btn" href="#contact">相談してみる</a>
+        <p class="btn-note">2営業日以内にお返事します</p>
+      </div>
+    </div>
+  </div>
+
+  <p class="foot">
+    このページはデモンストレーション用に制作したサンプルLPです。<br>
+    掲載の人物・実績・料金はすべて架空で、ボタンの遷移先はありません。<br>
+    © 2026 Sample Landing Page
+  </p>
+
+</div>
+<!-- ARTIFACT:END -->
+</body>
+</html>
