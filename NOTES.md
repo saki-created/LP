@@ -56,7 +56,24 @@
 - [x] アイコン images/icon.png 設置（ヘッダー・プロフィール・ファビコン）
 - [x] 帯写真 images/desk.jpg、OGP images/ogp.jpg 設置
 - [x] ボタン色を #D6246E → #A82C5E（落ち着いたマゼンタ）に変更 ※本人希望
-- [ ] GitHub に push → Vercel で公開
+- [x] GitHub に push → Vercel で公開完了
+
+## 公開URL
+- 本番：https://saki-created.vercel.app  ← これを使う
+- 旧URL：https://lp-alpha-sepia.vercel.app （新URLへ307転送）
+- 予備：https://saki-created.github.io/LP/ （GitHub Pages。中身は同じ）
+
+## 更新のしかた
+index.html を直して git push origin main → Vercelが自動で公開し直す。URLは変わらない。
+
+## Vercel（操作の入口）
+- アカウント名：saki12 ／ プロジェクト名：lp
+- ドメイン設定：https://vercel.com/saki12/lp/settings/domains
+- 2FA（2段階認証）は未設定。落ち着いたら設定する。
+
+## 残タスク
+- [ ] Vercelの2FA設定（任意・落ち着いてから）
+- [ ] 顔出し写真やお客様の声を足すか検討（今は無し）
 - [ ] GitHub に push → Vercel で公開
 
 ## 技術メモ

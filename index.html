@@ -259,6 +259,24 @@ details .body{padding:0 22px 22px;font-size:14px;line-height:2;color:var(--ink-s
 .final h2{margin-bottom:20px;}
 .final .lead{font-size:14px;line-height:2.1;color:var(--ink-soft);margin-bottom:36px;}
 
+/* ===== もう1つのページへの案内 ===== */
+.bridge{
+  display:block;text-decoration:none;color:inherit;
+  background:#fff;border:1px solid rgba(201,154,150,.35);
+  border-radius:18px;padding:28px 24px;max-width:520px;margin:0 auto;
+  transition:box-shadow .3s;
+}
+.bridge:hover{box-shadow:0 8px 24px rgba(70,59,54,.08);}
+.bridge .label{
+  display:inline-block;font-size:10px;letter-spacing:.2em;color:var(--pink);
+  border:1px solid var(--pink);border-radius:999px;padding:4px 12px;margin-bottom:16px;
+}
+.bridge .ttl{
+  font-family:var(--mincho);font-size:19px;line-height:1.8;font-weight:500;margin:0 0 10px;
+}
+.bridge .desc{font-size:13px;line-height:1.95;color:var(--ink-soft);margin:0 0 16px;}
+.bridge .go{font-size:13px;font-weight:700;color:var(--accent);}
+
 /* ===== フッター ===== */
 footer{
   background:var(--ink);color:#CFC3BC;text-align:center;
@@ -455,8 +473,25 @@ footer .copy{font-size:11px;opacity:.6;letter-spacing:.08em;}
   </div>
 </section>
 
+<!-- ===== もう1つのページへ ===== -->
+<section class="sec-beige">
+  <div class="wrap">
+    <h2><span class="en">NEXT</span>「じゃあ、どう整えるの？」</h2>
+    <a class="bridge" href="https://saki-salon-template.vercel.app">
+      <span class="label">無料サンプル配布中</span>
+      <p class="ttl">1人サロン管理テンプレを、<br>無料でお配りしています</p>
+      <p class="desc">
+        売上はExcel、カルテは紙、予約はサイト。<br>
+        散らばった管理を、Notionでひとつにまとめました。
+      </p>
+      <span class="go">受け取りページを見る →</span>
+    </a>
+  </div>
+</section>
+
 <footer>
   <div class="links">
+    <a href="https://saki-salon-template.vercel.app">無料テンプレ</a>
     <a href="https://note.com/saki_created/n/ncfe49e5db8fa" target="_blank" rel="noopener">note</a>
     <a href="https://www.threads.com/@saki.created_aesth" target="_blank" rel="noopener">Threads</a>
   </div>
