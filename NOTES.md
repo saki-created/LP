@@ -80,3 +80,10 @@ index.html を直して git push origin main → Vercelが自動で公開し直�
 - 作業フォルダ：C:\Users\yuho\OneDrive\デスクトップ\LP作成
 - git ブランチ：main ／ 既存ファイル：index.html, README.md, .nojekyll
 - ファイル名はすべて半角英数。画像は images/ フォルダに相対パスで置く。
+
+## ヒーロー動画（2026-07-25 追加）
+- images/hero.mp4（HEVCのmovをH.264 mp4に変換・圧縮 11MB→約680KB／音声なし）
+- images/hero-poster.jpg（再生前フォールバック）
+- 元動画：Downloads/0A3841DA-...mov（DeeVid AI 製・右上に薄い透かしあり）
+- 変換コマンド：ffmpeg -an -vf scale=1280:-2 -c:v libx264 -crf 27 -movflags +faststart
+- LP①②とも同じ動画をヒーロー背景に使用。autoplay/muted/loop/playsinline
