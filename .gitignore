@@ -27,3 +27,6 @@ build/
 # ログ
 *.log
 npm-debug.log*
+
+# Crebia 動画の元ファイル（公開不要）
+crebia/video-src/
