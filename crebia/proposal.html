@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Crebia（クレビア）｜名古屋・久屋大通 たるみ専門エステ｜女性専用・完全予約制</title>
+<meta name="description" content="名古屋・久屋大通駅 徒歩1分、40代からのたるみ専門エステサロンCrebia（クレビア）。元資生堂美容部員・エステグランプリファイナリストによる、機械を使わないオールハンド施術。女性専用・完全予約制。初回お試し40分5,500円。">
+<meta property="og:title" content="Crebia（クレビア）｜名古屋・たるみ専門エステ">
+<meta property="og:description" content="オールハンドで深層からゆるめ、めぐらせて。−5歳のハリツヤ肌を叶える、たるみ専門エステ。">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --white:#fdfbf7;
+  --ivory:#f7f1e8;
+  --sand:#ece0cf;
+  --sand-deep:#dcc9b0;
+  --blue:#bcd6de;
+  --blue-deep:#7fa8b3;
+  --gold:#c8a86a;
+  --gold-soft:#e3d2ac;
+  --text:#4a4038;
+  --text-soft:#7a6f64;
+  --line:#e7ddce;
+  --shadow:0 12px 40px rgba(120,100,70,.10);
+  --mincho:'Shippori Mincho',serif;
+  --gothic:'Zen Kaku Gothic New',sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--gothic);
+  color:var(--text);
+  background:var(--white);
+  line-height:1.9;
+  font-size:16px;
+  letter-spacing:.02em;
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+.mincho{font-family:var(--mincho)}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+.narrow{max-width:760px;margin:0 auto;padding:0 24px}
+
+/* ===== 呼びかけ帯 ===== */
+.callbar{
+  background:linear-gradient(90deg,#f0e6d6,#f7efe2);
+  color:var(--text);
+  text-align:center;
+  font-size:13px;
+  padding:9px 16px;
+  letter-spacing:.03em;
+  border-bottom:1px solid var(--gold-soft);
+}
+.callbar b{color:#b58f4f;font-weight:600}
+
+/* ===== ヘッダー ===== */
+header{
+  position:sticky;top:0;z-index:100;
+  background:rgba(253,251,247,.92);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);
+}
+.hd-inner{display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{font-family:var(--mincho);font-size:26px;font-weight:600;letter-spacing:.12em;color:var(--text)}
+.logo span{font-size:12px;letter-spacing:.15em;color:var(--gold);display:block;line-height:1;margin-top:2px;font-family:var(--gothic)}
+.hd-btn{
+  background:linear-gradient(135deg,#d8b878,#c8a86a);
+  color:#fff;font-size:14px;font-weight:500;
+  padding:11px 22px;border-radius:40px;
+  letter-spacing:.05em;
+  box-shadow:0 4px 14px rgba(200,168,106,.35);
+  transition:.25s;
+}
+.hd-btn:hover{transform:translateY(-1px);box-shadow:0 6px 18px rgba(200,168,106,.5)}
+
+/* ===== ヒーロー ===== */
+.hero{
+  position:relative;
+  background:
+    linear-gradient(180deg,rgba(253,251,247,.4),rgba(247,241,232,.75)),
+    linear-gradient(135deg,#f7f1e8 0%,#efe4d3 45%,#e3edef 100%);
+  padding:74px 0 88px;
+  overflow:hidden;
+  text-align:center;
+}
+.hero::before{
+  content:"";position:absolute;top:-120px;right:-100px;
+  width:360px;height:360px;border-radius:50%;
+  background:radial-gradient(circle,rgba(188,214,222,.55),transparent 70%);
+}
+.hero::after{
+  content:"";position:absolute;bottom:-140px;left:-90px;
+  width:340px;height:340px;border-radius:50%;
+  background:radial-gradient(circle,rgba(227,210,172,.5),transparent 70%);
+}
+.hero-inner{position:relative;z-index:2}
+.hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 45%;z-index:0}
+.hero-veil{position:absolute;inset:0;z-index:1;
+  background:linear-gradient(90deg,rgba(253,251,247,.96) 0%,rgba(253,251,247,.9) 38%,rgba(253,251,247,.35) 68%,rgba(253,251,247,.1) 100%)}
+.hero::before,.hero::after{z-index:1}
+@media(min-width:821px){
+  .hero-video{left:auto;right:0;width:50%;object-position:center 32%}
+  .hero-veil{background:linear-gradient(90deg,var(--white) 0%,var(--white) 48%,rgba(253,251,247,.55) 54%,rgba(253,251,247,0) 64%)}
+  .hero::before{display:none}
+  .hero{text-align:left;padding:96px 0 104px;background:var(--white)}
+  .hero-inner{width:50%;max-width:none;margin:0;padding-left:max(24px,calc(50vw - 516px));padding-right:40px}
+  .hero .sub::before{display:none}
+  .hero .hero-inner .catch{margin:26px 0 0;text-align:left}
+  .hero .hero-inner .hero-cta{justify-content:flex-start}
+  .hero .hero-inner .hero-note{text-align:left}
+  .hero-inner > *{max-width:560px}
+}
+@media(max-width:820px){
+  .hero-veil{background:linear-gradient(180deg,rgba(253,251,247,.82),rgba(253,251,247,.9))}
+  .hero{text-align:left}
+  .hero .sub::before{display:none}
+  .hero .hero-inner .catch{margin:22px 0 0;text-align:left}
+  .hero .hero-inner .hero-cta{justify-content:flex-start}
+  .hero .hero-inner .hero-note{text-align:left}
+  .hero h1{text-shadow:0 0 18px rgba(253,251,247,.9)}
+  .hero h1 .big{font-size:1.45em;text-shadow:0 0 18px rgba(253,251,247,.95),0 2px 14px rgba(200,168,106,.3)}
+}
+/* ② 縦書きキャッチ（PCのみ・動画の上） */
+.hero-vertical{display:none}
+@media(min-width:821px){
+  .hero-vertical{display:flex;flex-direction:row-reverse;align-items:flex-start;gap:12px;position:absolute;z-index:2;top:40px;right:max(32px,calc(50vw - 560px));
+    font-family:var(--mincho);font-size:clamp(16px,1.35vw,19px);letter-spacing:.32em;line-height:1;color:#3f362e;margin:0}
+  .hero-vertical span{writing-mode:vertical-rl;background:rgba(253,251,247,.88);padding:16px 9px;box-shadow:0 4px 18px rgba(80,60,40,.12)}
+  .hero-vertical span:nth-child(2){margin-top:34px}
+  .hero-vertical span:nth-child(3){margin-top:68px}
+  .catch-future{display:none}
+}
+
+/* お店のキャッチ「40代からの たるみ小顔専門エステ」を目立たせる */
+.hero .hero-inner .sub{display:inline-block;font-size:clamp(15px,1.35vw,18px);font-weight:700;color:#8a6a33;letter-spacing:.14em;
+  background:rgba(255,253,248,.9);border:1px solid #c8a86a;border-radius:40px;padding:8px 20px;margin-bottom:24px;
+  box-shadow:0 4px 14px rgba(160,125,60,.14)}
+.hero .hero-inner .sub::before,.hero .hero-inner .sub::after{display:none}
+
+/* スマホ：動画をはっきり見せる（白いベールを薄く・文字は縁取りで読みやすく） */
+@media(max-width:820px){
+  .hero .hero-veil{background:linear-gradient(180deg,rgba(253,251,247,.35) 0%,rgba(253,251,247,.55) 55%,rgba(253,251,247,.78) 100%)}
+  .hero::before,.hero::after{display:none}
+  .hero .hero-inner .catch,.hero .hero-inner .hero-note{color:#3f362e;font-weight:500;text-shadow:0 0 10px rgba(253,251,247,1),0 0 4px rgba(253,251,247,1),0 0 2px rgba(253,251,247,1)}
+}
+
+/* ③ 登場演出（ページを開いたとき1回だけ） */
+@keyframes heroUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+@keyframes heroLine{from{background-size:0% 100%}to{background-size:100% 100%}}
+@keyframes heroFade{from{opacity:0}to{opacity:1}}
+/* 案1：見出しの上の「共感の一言」 */
+.hero .hero-inner .hero-hook{font-family:var(--mincho);font-size:clamp(16px,1.45vw,20px);font-weight:600;color:#3f362e;line-height:1.85;letter-spacing:.06em;margin:0 0 18px}
+.hero .hero-inner .hero-hook b{color:#a8813f;font-weight:700}
+@media(max-width:820px){.hero .hero-inner .hero-hook{text-shadow:0 0 10px rgba(253,251,247,1),0 0 4px rgba(253,251,247,1)}}
+.hero .sub,.hero .hero-hook,.hero h1 .lead,.hero h1 .big,.hero .catch,.hero .hero-cta,.hero .hero-note{animation:heroUp .9s cubic-bezier(.2,.7,.2,1) backwards}
+.hero .sub{animation-delay:.1s}
+.hero .hero-hook{animation-delay:.3s}
+.hero h1 .lead{animation-delay:.75s}
+.hero h1 .big{animation-delay:1.05s;background-repeat:no-repeat;background-position:left bottom}
+.hero h1 .big{animation:heroUp .9s cubic-bezier(.2,.7,.2,1) 1.05s backwards,heroLine 1s ease-out 1.7s backwards}
+.hero .catch{animation-delay:1.45s}
+.hero .hero-cta{animation-delay:1.65s}
+.hero .hero-note{animation-delay:1.8s}
+.hero-vertical{animation:heroFade 1.6s ease .9s backwards}
+@media(prefers-reduced-motion:reduce){
+  .hero-video{display:none}
+  .hero *,.hero-vertical{animation:none!important}
+}
+.hero .sub{
+  font-size:14px;letter-spacing:.18em;color:var(--gold);
+  margin-bottom:22px;font-weight:500;
+}
+.hero .sub::before,.hero .sub::after{content:"—";margin:0 10px;color:var(--gold-soft)}
+.hero h1{
+  font-family:var(--mincho);
+  font-weight:700;
+  font-size:clamp(36px,3.9vw,50px);
+  line-height:1.4;
+  letter-spacing:.05em;
+  color:#3f362e;
+  margin-bottom:20px;
+}
+.hero h1 .lead{
+  display:block;font-size:.72em;color:#4a4038;
+  font-weight:600;margin-bottom:10px;letter-spacing:.08em;
+}
+.hero h1 .big{
+  display:inline-block;
+  font-size:1.35em;font-weight:700;letter-spacing:.06em;
+  color:#a8813f;
+  background:linear-gradient(transparent 72%,rgba(188,214,222,.75) 72%);
+  padding:0 .08em;
+  text-shadow:0 2px 14px rgba(200,168,106,.25);
+}
+.hero .catch{
+  font-size:16px;color:var(--text-soft);
+  margin:26px auto 0;max-width:600px;line-height:2;
+}
+.hero-cta{margin-top:38px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.btn-main{
+  background:linear-gradient(135deg,#d8b878,#c39a52);
+  color:#fff;font-size:17px;font-weight:600;
+  padding:18px 40px;border-radius:50px;
+  letter-spacing:.04em;
+  box-shadow:0 8px 24px rgba(195,154,82,.4);
+  transition:.28s;
+}
+.btn-main:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(195,154,82,.55)}
+.btn-main small{display:block;font-size:12px;font-weight:400;opacity:.9;letter-spacing:.05em;margin-bottom:2px}
+.btn-line{
+  background:#fff;color:#5a9a4e;font-size:15px;font-weight:600;
+  padding:18px 32px;border-radius:50px;border:1.5px solid #cfe6c9;
+  transition:.28s;box-shadow:var(--shadow);
+}
+.btn-line:hover{background:#f4faf2;transform:translateY(-2px)}
+.hero-note{margin-top:18px;font-size:13.5px;color:var(--text-soft);letter-spacing:.05em}
+
+/* ===== セクション共通 ===== */
+section{padding:76px 0}
+.sec-label{
+  text-align:center;font-size:13px;letter-spacing:.25em;
+  color:var(--gold);font-weight:600;margin-bottom:12px;
+}
+.sec-title{
+  font-family:var(--mincho);text-align:center;
+  font-size:clamp(23px,4.4vw,32px);font-weight:600;
+  line-height:1.5;letter-spacing:.04em;color:#3f362e;
+  margin-bottom:14px;
+}
+.sec-title .accent{color:#b58f4f}
+.sec-lead{text-align:center;color:var(--text-soft);font-size:16px;margin-bottom:48px;line-height:2}
+
+/* ===== 悩み ===== */
+.worry{background:linear-gradient(180deg,#fdfbf7,#f7f1e8)}
+.worry-intro{
+  text-align:center;font-family:var(--mincho);
+  font-size:clamp(17px,3.2vw,21px);line-height:2.1;
+  color:#4a4038;margin-bottom:46px;
+}
+.worry-intro b{color:#b58f4f;font-weight:600}
+.worry-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;max-width:820px;margin:0 auto}
+.worry-item{
+  background:#fff;border-radius:16px;padding:22px 24px;
+  display:flex;align-items:center;gap:16px;
+  box-shadow:0 6px 20px rgba(120,100,70,.06);
+  border:1px solid #f0e8da;
+  font-size:16px;line-height:1.7;
+}
+.worry-item .ck{
+  flex-shrink:0;width:30px;height:30px;border-radius:50%;
+  background:linear-gradient(135deg,#dcecef,#bcd6de);
+  display:flex;align-items:center;justify-content:center;
+  color:#5f8f9b;font-size:15px;
+}
+.worry-item b{color:#b58f4f;font-weight:600}
+.worry-more{
+  text-align:center;margin-top:40px;font-family:var(--mincho);
+  font-size:clamp(18px,3.4vw,23px);color:#3f362e;line-height:1.8;
+}
+.worry-more span{color:#b58f4f}
+
+/* ===== 選ばれる理由 ===== */
+.reasons{background:#fff}
+.reason{
+  display:grid;grid-template-columns:1fr 1.3fr;gap:40px;align-items:center;
+  margin-bottom:56px;
+}
+.reason:nth-child(even) .r-img{order:2}
+.reason-full{margin-bottom:0}
+.r-img{
+  position:relative;border-radius:20px;overflow:hidden;
+  box-shadow:var(--shadow);aspect-ratio:4/3;
+  background:linear-gradient(135deg,#efe4d3,#e3edef);
+}
+.r-img img{width:100%;height:100%;object-fit:cover}
+.r-num{
+  font-family:var(--mincho);font-size:15px;color:var(--gold);
+  letter-spacing:.15em;margin-bottom:10px;font-weight:600;
+}
+.r-num .n{font-size:34px;color:var(--sand-deep);vertical-align:-4px;margin-right:6px}
+.r-badge{
+  display:inline-block;background:#f2ebdc;color:#b58f4f;
+  font-size:12px;font-weight:600;padding:5px 14px;border-radius:30px;
+  letter-spacing:.08em;margin-bottom:14px;
+}
+.r-title{
+  font-family:var(--mincho);font-size:clamp(20px,3.4vw,25px);
+  font-weight:600;line-height:1.55;color:#3f362e;margin-bottom:16px;
+}
+.r-title b{color:#b58f4f}
+.r-body{font-size:15.5px;color:var(--text-soft);line-height:2}
+.r-body .note{
+  display:block;margin-top:12px;padding-left:14px;
+  border-left:2px solid var(--blue);font-size:14.5px;color:#8a7f73;
+}
+
+/* ===== 料金 ===== */
+.price{background:linear-gradient(180deg,#f7f1e8,#fdfbf7)}
+.trial{
+  max-width:640px;margin:0 auto 44px;text-align:center;
+  background:linear-gradient(135deg,#fff,#faf4ea);
+  border:2px solid var(--gold-soft);border-radius:24px;
+  padding:38px 30px;box-shadow:var(--shadow);position:relative;
+}
+.trial-tag{
+  position:absolute;top:-15px;left:50%;transform:translateX(-50%);
+  background:linear-gradient(135deg,#d8b878,#c39a52);color:#fff;
+  font-size:13px;font-weight:600;padding:7px 24px;border-radius:30px;
+  letter-spacing:.08em;white-space:nowrap;
+  box-shadow:0 4px 12px rgba(195,154,82,.4);
+}
+.trial h3{font-family:var(--mincho);font-size:23px;color:#3f362e;margin:12px 0 6px;font-weight:600}
+.trial .p{font-family:var(--mincho);font-size:16px;color:var(--text-soft);margin-bottom:16px}
+.trial .yen{font-size:44px;color:#b58f4f;font-weight:600;font-family:var(--mincho)}
+.trial .yen small{font-size:18px}
+.trial .min{font-size:14px;color:var(--text-soft);margin-left:6px}
+.trial-btn{
+  display:inline-block;margin-top:22px;
+  background:linear-gradient(135deg,#d8b878,#c39a52);color:#fff;
+  font-size:16px;font-weight:600;padding:16px 44px;border-radius:50px;
+  box-shadow:0 8px 20px rgba(195,154,82,.4);transition:.28s;letter-spacing:.04em;
+}
+.trial-btn:hover{transform:translateY(-2px);box-shadow:0 12px 26px rgba(195,154,82,.55)}
+.course-note{text-align:center;font-size:15px;color:var(--text-soft);margin-bottom:24px}
+.course-note b{color:#b58f4f}
+.courses{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;max-width:900px;margin:0 auto}
+.course{
+  background:#fff;border-radius:18px;padding:28px 22px;text-align:center;
+  border:1px solid var(--line);box-shadow:0 6px 20px rgba(120,100,70,.06);
+  transition:.25s;
+}
+.course:hover{transform:translateY(-4px);box-shadow:0 12px 28px rgba(120,100,70,.12)}
+.course.pop{border:2px solid var(--gold-soft);position:relative}
+.course.pop::before{
+  content:"人気";position:absolute;top:-12px;left:50%;transform:translateX(-50%);
+  background:var(--blue-deep);color:#fff;font-size:11px;font-weight:600;
+  padding:4px 16px;border-radius:20px;letter-spacing:.1em;
+}
+.course h4{font-family:var(--mincho);font-size:19px;color:#3f362e;margin-bottom:4px;font-weight:600}
+.course .time{font-size:14px;color:var(--text-soft);margin-bottom:16px}
+.course{display:flex;flex-direction:column}
+.course .desc{text-align:left;font-size:14px;line-height:1.85;color:var(--text-soft);margin:0 0 18px;padding-top:14px;border-top:1px solid var(--line);flex:1}
+.course .desc b{display:block;color:#3f362e;font-weight:600;margin-bottom:6px}
+.course .reg{font-size:14px;color:#b0a294;text-decoration:line-through}
+.course .off{
+  display:inline-block;background:#f2ebdc;color:#b58f4f;font-size:11px;
+  font-weight:600;padding:2px 10px;border-radius:14px;margin:0 0 6px 6px;
+}
+.course .now{font-family:var(--mincho);font-size:30px;color:#b58f4f;font-weight:600}
+.course .now small{font-size:15px}
+.course .now .init{display:block;font-size:12px;color:var(--text-soft);font-family:var(--gothic)}
+
+/* ===== プロフィール ===== */
+.profile{background:#fff}
+.prof-card{
+  display:grid;grid-template-columns:.85fr 1.15fr;gap:44px;align-items:center;
+  max-width:960px;margin:0 auto;
+}
+.prof-img{aspect-ratio:1/1;max-width:400px;width:100%;margin:0 auto}
+.prof-img img{width:100%;height:100%;object-fit:contain}
+.prof-role{font-size:15px;color:var(--gold);line-height:1.8;margin-bottom:10px;font-weight:500}
+.prof-name{font-family:var(--mincho);font-size:30px;color:#3f362e;font-weight:600;margin-bottom:6px}
+.prof-name .ruby{font-size:14px;color:var(--text-soft);margin-left:12px;letter-spacing:.1em}
+.prof-body{font-size:15.5px;color:#5a5048;line-height:2.05;margin-top:20px}
+.prof-body p{margin-bottom:15px}
+.prof-body .close{font-family:var(--mincho);font-size:17px;color:#b58f4f;font-weight:600;line-height:1.8}
+
+/* ===== FAQ ===== */
+.faq{background:linear-gradient(180deg,#f7f1e8,#fdfbf7)}
+.faq-list{max-width:760px;margin:0 auto;display:flex;flex-direction:column;gap:14px}
+.faq-item{
+  background:#fff;border-radius:16px;border:1px solid var(--line);
+  overflow:hidden;box-shadow:0 4px 14px rgba(120,100,70,.05);
+}
+.faq-q{
+  display:flex;gap:14px;align-items:flex-start;padding:20px 24px;
+  cursor:pointer;font-weight:500;font-size:16px;color:#3f362e;
+  list-style:none;transition:.2s;
+}
+.faq-q::-webkit-details-marker{display:none}
+.faq-q .qm{
+  flex-shrink:0;width:26px;height:26px;border-radius:50%;
+  background:linear-gradient(135deg,#e3d2ac,#c8a86a);color:#fff;
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--mincho);font-size:14px;font-weight:700;
+}
+.faq-q .arrow{margin-left:auto;color:var(--gold);transition:.3s;flex-shrink:0;font-size:13px}
+.faq-item[open] .faq-q .arrow{transform:rotate(180deg)}
+.faq-item[open] .faq-q{background:#faf5ec}
+.faq-a{
+  padding:0 24px 22px 64px;font-size:15px;color:var(--text-soft);line-height:2;
+}
+.faq-a b{color:#b58f4f;font-weight:600}
+
+/* ===== 最後のCTA ===== */
+.final{
+  background:
+    linear-gradient(180deg,rgba(247,241,232,.6),rgba(227,237,239,.6)),
+    linear-gradient(135deg,#f7f1e8,#e3edef);
+  text-align:center;position:relative;overflow:hidden;
+}
+.final::before{
+  content:"";position:absolute;top:-100px;left:50%;transform:translateX(-50%);
+  width:400px;height:400px;border-radius:50%;
+  background:radial-gradient(circle,rgba(227,210,172,.4),transparent 70%);
+}
+.final-inner{position:relative;z-index:2}
+.final h2{
+  font-family:var(--mincho);font-size:clamp(22px,4.2vw,30px);
+  line-height:1.7;color:#3f362e;font-weight:600;margin-bottom:18px;
+}
+.final h2 .accent{color:#b58f4f;border-bottom:3px solid var(--blue);padding-bottom:3px}
+.final p{color:var(--text-soft);font-size:15px;margin-bottom:34px;line-height:2}
+
+/* ===== フッター ===== */
+footer{background:#4a4038;color:#e9e1d5;padding:56px 0 30px;text-align:center}
+.ft-logo{font-family:var(--mincho);font-size:30px;letter-spacing:.12em;margin-bottom:6px;color:#fff}
+.ft-tag{font-size:13px;color:var(--gold-soft);letter-spacing:.1em;margin-bottom:24px}
+.ft-info{font-size:15px;line-height:2.1;color:#d6cbba;margin-bottom:30px}
+.ft-info .sep{color:#7a6f5e;margin:0 8px}
+.ft-cta-label{font-size:12px;letter-spacing:.2em;color:var(--gold-soft);margin-bottom:16px}
+.ft-links{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-bottom:14px}
+.ft-links-sub{margin-bottom:34px}
+.ft-link{
+  border:1px solid #6b6154;padding:12px 26px;border-radius:40px;
+  font-size:14px;transition:.25s;background:rgba(255,255,255,.03);
+}
+.ft-link.book{background:linear-gradient(135deg,#d8b878,#c39a52);border:none;color:#fff;font-weight:600}
+.ft-link:hover{transform:translateY(-2px);border-color:var(--gold)}
+.ft-copy{font-size:11.5px;color:#8a8073;letter-spacing:.05em;border-top:1px solid #5c5347;padding-top:22px;margin-top:10px}
+
+/* ===== 追従ボタン（スマホ） ===== */
+.float-cta{
+  position:fixed;bottom:0;left:0;right:0;z-index:90;
+  display:none;gap:10px;padding:10px 14px;
+  background:rgba(253,251,247,.95);backdrop-filter:blur(8px);
+  border-top:1px solid var(--line);
+  box-shadow:0 -4px 20px rgba(120,100,70,.1);
+}
+.float-cta a{
+  flex:1;text-align:center;padding:14px;border-radius:40px;
+  font-size:15px;font-weight:600;letter-spacing:.03em;
+}
+.float-cta .fbook{background:linear-gradient(135deg,#d8b878,#c39a52);color:#fff}
+.float-cta .fline{background:#fff;color:#5a9a4e;border:1.5px solid #cfe6c9}
+
+/* ===== ビフォーアフター ===== */
+.ba{background:#fff}
+.ba-main{max-width:720px;margin:0 auto 22px;border-radius:20px;overflow:hidden;box-shadow:var(--shadow);border:1px solid var(--line)}
+.ba-main img{width:100%;display:block}
+.ba-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;max-width:900px;margin:0 auto}
+.ba-cell{border-radius:16px;overflow:hidden;box-shadow:0 6px 20px rgba(120,100,70,.08);border:1px solid var(--line);background:#faf5ec}
+.ba-cell img{width:100%;height:100%;object-fit:cover;display:block;aspect-ratio:3/4}
+.ba-note{text-align:center;font-size:13px;color:var(--text-soft);margin-top:24px;letter-spacing:.03em}
+
+/* ===== お客様の声 ===== */
+.voice{background:linear-gradient(180deg,#fdfbf7,#f7f1e8)}
+.voice-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;max-width:900px;margin:0 auto}
+.voice-card{background:#fff;border-radius:18px;overflow:hidden;box-shadow:0 6px 20px rgba(120,100,70,.08);border:1px solid var(--line)}
+.voice-card img{width:100%;height:280px;object-fit:cover;object-position:center top;display:block}
+.voice-cap{padding:16px 18px;font-size:14.5px;color:var(--text-soft);line-height:1.8}
+.voice-cap b{color:#b58f4f;font-weight:600;display:block;margin-bottom:4px;font-size:13px}
+
+/* ===== 空間バンド ===== */
+.space-band{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;max-width:960px;margin:40px auto 0}
+.space-band img{width:100%;height:240px;object-fit:cover;border-radius:16px;box-shadow:0 6px 20px rgba(120,100,70,.08)}
+
+/* ===== 施術の流れ ===== */
+.flow{background:#fff}
+.flow-list{list-style:none;display:grid;grid-template-columns:repeat(5,1fr);gap:14px;max-width:1000px;margin:0 auto}
+.flow-list li{background:#faf5ec;border:1px solid var(--line);border-radius:16px;padding:22px 16px;text-align:center}
+.flow-list .fn{display:inline-flex;width:30px;height:30px;border-radius:50%;align-items:center;justify-content:center;background:var(--gold);color:#fff;font-family:var(--mincho);font-weight:600;margin-bottom:10px}
+.flow-list b{display:block;font-family:var(--mincho);color:#3f362e;font-size:16px;margin-bottom:6px}
+.flow-list p{font-size:14px;color:var(--text-soft);line-height:1.8}
+@media(max-width:820px){.flow-list{grid-template-columns:1fr;max-width:440px}.flow-list li{text-align:left;display:grid;grid-template-columns:40px 1fr;column-gap:10px}.flow-list .fn{grid-row:span 2;margin:0}}
+
+/* ===== 改行の調整 ===== */
+.nw{display:inline-block}
+body{word-break:auto-phrase;text-wrap:pretty}
+h1,h2,h3,.sec-title,.r-title{text-wrap:balance}
+
+/* ===== レスポンシブ ===== */
+@media(max-width:820px){
+  .reason{grid-template-columns:1fr;gap:22px}
+  .reason:nth-child(even) .r-img{order:0}
+  .prof-card{grid-template-columns:1fr;gap:28px;max-width:440px}
+  .prof-img{max-width:280px}
+}
+@media(max-width:640px){
+  section{padding:56px 0}
+  .hd-btn{padding:9px 16px;font-size:13px}
+  .logo{font-size:22px}
+  .worry-grid{grid-template-columns:1fr}
+  .courses{grid-template-columns:1fr;max-width:360px}
+  .hero{padding:52px 0 68px}
+  .btn-main{width:100%;max-width:340px}
+  .float-cta{display:flex}
+  footer{padding-bottom:96px}
+  .faq-a{padding-left:24px}
+  .ba-grid{grid-template-columns:1fr 1fr;gap:12px}
+  .voice-grid{grid-template-columns:1fr;max-width:420px}
+  .voice-card img{height:auto}
+  .space-band{grid-template-columns:1fr}
+  .space-band img{height:220px}
+}
+</style>
+</head>
+<body>
+
+<!-- 呼びかけ帯 -->
+<div class="callbar">
+  「最近、<b>フェイスラインのゆるみ</b>が気になる…」　40・50代女性のあなたへ
+</div>
+
+<!-- ヘッダー -->
+<header>
+  <div class="wrap hd-inner">
+    <div class="logo">Crebia<span>CREBIA</span></div>
+    <a href="https://tol-app.jp/s/p2yodhukjyn1ykac7gkn" class="hd-btn" target="_blank" rel="noopener">ご予約</a>
+  </div>
+</header>
+
+<!-- ヒーロー -->
+<section class="hero">
+  <video class="hero-video" src="images/hero.mp4" poster="images/hero-poster.jpg" autoplay muted loop playsinline aria-hidden="true"></video>
+  <div class="hero-veil" aria-hidden="true"></div>
+  <p class="hero-vertical" aria-hidden="true"><span>歳を重ねても、</span><span>自分らしく、</span><span>笑顔でいられる未来へ</span></p>
+  <div class="wrap hero-inner">
+    <p class="sub"><span class="nw">40代からの</span> <span class="nw">たるみ小顔専門エステ</span></p>
+    <p class="hero-hook"><span class="nw">最近、鏡を見るたび</span><br><span class="nw">「<b>フェイスラインがぼやけてきた</b>」と</span><span class="nw">感じていませんか？</span></p>
+    <h1>
+      <span class="lead">ゆるめて、めぐらせて、</span>
+      <span class="big">引き上げる</span>
+    </h1>
+    <p class="catch">顔だけでなく、デコルテ・首肩・頭皮まで。<br>オールハンドで、ハリ・ツヤのある若々しい印象へ。<span class="catch-future"><br>歳を重ねても、自分らしく、笑顔でいられる未来へ。</span></p>    <div class="hero-cta">
+      <a href="https://tol-app.jp/s/p2yodhukjyn1ykac7gkn" class="btn-main" target="_blank" rel="noopener">
+        <small>まずは気軽に</small>40分・5,500円で体験する
+      </a>
+      <a href="https://lin.ee/7zFPMXY" class="btn-line" target="_blank" rel="noopener">LINEで相談する</a>
+    </div>
+    <p class="hero-note">女性専用・完全予約制／名古屋市内・近郊エリア 出張エステ対応</p>
+  </div>
+</section>
+
+<!-- 悩み -->
+<section class="worry">
+  <div class="wrap">
+    <p class="sec-label">CHECK</p>
+    <h2 class="sec-title">こんなお悩み、<span class="accent">ありませんか？</span></h2>
+    <div class="worry-grid">
+      <div class="worry-item"><span class="ck">✓</span><span><span class="nw"><b>フェイスラインのゆるみ</b>が</span><span class="nw">気になる</span></span></div>
+      <div class="worry-item"><span class="ck">✓</span><span><span class="nw"><b>ほうれい線や</b></span><span class="nw"><b>口元のたるみ</b>が</span><span class="nw">目立つ</span></span></div>
+      <div class="worry-item"><span class="ck">✓</span><span><span class="nw"><b>疲れて見える</b>・</span><span class="nw">顔色がくすむ</span></span></div>
+      <div class="worry-item"><span class="ck">✓</span><span><span class="nw"><b>首や肩のこり</b>、</span><span class="nw">重だるさがある</span></span></div>
+      <div class="worry-item"><span class="ck">✓</span><span><span class="nw">鏡を見るたびに</span><span class="nw"><b>年齢を感じる</b></span></span></div>
+    </div>
+    <p class="worry-more">そのお悩み、<br><span>Crebiaのオールハンド施術</span>で<br>やさしく整えていきます。</p>
+  </div>
+</section>
+
+<!-- 選ばれる理由 -->
+<section class="reasons">
+  <div class="wrap">
+    <p class="sec-label">REASON</p>
+    <h2 class="sec-title">Crebiaが選ばれる<span class="accent">3つの理由</span></h2>
+    <div class="sec-lead">機械を使わない、オールハンドだからこそ届く変化があります。</div>
+
+    <div class="reason">
+      <div class="r-img"><img src="images/counseling.jpg" alt="カウンセリングの様子" loading="lazy"></div>
+      <div class="r-txt">
+        <div class="r-num"><span class="n">01</span>美容部員歴23年</div>
+        <h3 class="r-title">美容部員歴<b>23年</b>の経験を活かして</h3>
+        <p class="r-body">資生堂美容部員として23年間、多くの女性の肌や美容のお悩みに向き合ってきました。その経験を活かし、一人ひとりに寄り添う丁寧なケアを行います。</p>
+      </div>
+    </div>
+
+    <div class="reason">
+      <div class="r-img"><img src="images/treatment-a.jpg" alt="オールハンド施術の様子" loading="lazy"></div>
+      <div class="r-txt">
+        <div class="r-num"><span class="n">02</span>オールハンドケア</div>
+        <h3 class="r-title">顔だけじゃない<br><b>オールハンドケア</b></h3>
+        <p class="r-body">顔だけでなく、デコルテ・首肩・頭皮までゆるめ、めぐりを整えてフェイスラインを引き上げます。手のぬくもりを感じる心地よいケアで、深い満足感へ。</p>
+      </div>
+    </div>
+
+    <div class="reason reason-full">
+      <div class="r-img"><img src="images/treatment-b.jpg" alt="オールハンドによるフェイシャル施術" loading="lazy"></div>
+      <div class="r-txt">
+        <div class="r-num"><span class="n">03</span>技術を磨き続ける</div>
+        <span class="r-badge">ESTHETIC GRAND PRIX 2026 中部北陸エリア ファイナリスト</span>
+        <h3 class="r-title"><b>技術を磨き続ける</b></h3>
+        <p class="r-body">2026年エステティックグランプリ 中部北陸エリアファイナリスト。お客様に喜んでいただける施術を届けたいという想いから、今も学び、技術を磨き続けています。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ビフォーアフター -->
+<section class="ba">
+  <div class="wrap">
+    <p class="sec-label">BEFORE / AFTER</p>
+    <h2 class="sec-title">手で、ここまで<span class="accent">変わる。</span></h2>
+    <div class="sec-lead">機械を使わないオールハンドでも、フェイスライン・首元に、うれしい変化を。</div>
+    <div class="ba-main"><img src="images/ba-main.jpg" alt="施術前と施術後の比較（40代・フェイスライン）" loading="lazy"></div>
+    <div class="ba-grid">
+      <div class="ba-cell"><img src="images/ba-2.jpg" alt="ビフォーアフター フェイスライン" loading="lazy"></div>
+      <div class="ba-cell"><img src="images/ba-3.jpg" alt="ビフォーアフター 首・デコルテ" loading="lazy"></div>
+      <div class="ba-cell"><img src="images/ba-4.jpg" alt="ビフォーアフター 横顔" loading="lazy"></div>
+    </div>
+    <p class="ba-note"><span class="nw">※写真は一例です。</span><span class="nw">効果の感じ方には</span><span class="nw">個人差があります。</span></p>
+  </div>
+</section>
+
+<!-- 料金 -->
+<section class="price" id="price">
+  <div class="wrap">
+    <p class="sec-label">MENU & PRICE</p>
+    <h2 class="sec-title"><span class="nw">初めての方へ</span>　<span class="nw"><span class="accent">選べるメニュー</span></span></h2>
+    <div class="sec-lead"></div>
+
+    <div class="trial">
+      <span class="trial-tag">まず試してみたい方</span>
+      <h3><span class="nw">フェイスライン</span><span class="nw">引き上げ体験</span></h3>
+      <p class="p"><span class="nw">お顔とデコルテを中心に、</span><span class="nw">Crebiaの施術を</span><span class="nw">気軽にご体験いただけます。</span></p>
+      <div><span class="yen"><small>¥</small>5,500</span><span class="min">／ 40分（税込）</span></div>
+      <a href="https://tol-app.jp/s/p2yodhukjyn1ykac7gkn" class="trial-btn" target="_blank" rel="noopener">この体験を予約する</a>
+    </div>
+
+    <p class="course-note"><span class="nw">しっかりケアを受けたい方</span>　<span class="nw"><b>初回30%OFF</b></span></p>
+    <div class="courses">
+      <div class="course">
+        <h4>すっきり小顔ケア</h4>
+        <p class="time">60分</p>
+        <div class="desc"><b>顔のむくみ感や、フェイスラインのもたつきが気になる方へ。</b>お顔・デコルテ・首肩・頭皮をケアし、すっきりとした印象を目指すコース。</div>
+        <p class="reg">通常 13,200円（税込）</p>
+        <p class="now"><span class="init">初回</span><small>¥</small>9,240</p>
+      </div>
+      <div class="course pop">
+        <h4>ハリツヤ小顔ケア</h4>
+        <p class="time">80分</p>
+        <div class="desc"><b>頬や口元のゆるみ、肌のハリ・ツヤ不足が気になる方へ。</b>60分コースより時間をかけ、肌状態に合わせたマスクケアも取り入れながら、ふっくらとしたハリ・ツヤのある印象を目指すコース。</div>
+        <p class="reg">通常 16,500円（税込）</p>
+        <p class="now"><span class="init">初回</span><small>¥</small>11,550</p>
+      </div>
+      <div class="course">
+        <h4>たるみ小顔リフトアップ</h4>
+        <p class="time">100分</p>
+        <div class="desc"><b>フェイスラインのたるみが気になり、首肩・背中からしっかりケアしたい方へ。</b>背中から施術を始め、デコルテ・首肩・顔・頭皮まで丁寧にケアする、Crebiaの充実コース。</div>
+        <p class="reg">通常 19,800円（税込）</p>
+        <p class="now"><span class="init">初回</span><small>¥</small>13,860</p>
+      </div>
+    </div>
+    <p class="ba-note"><span class="nw">※すべてのコースに</span><span class="nw">頭皮ケアが含まれます。</span>　<span class="nw">※100分コースのみ、</span><span class="nw">背中から仰向けへの</span><span class="nw">施術を行います。</span></p>
+  </div>
+</section>
+
+<!-- 施術の流れ -->
+<section class="flow">
+  <div class="wrap">
+    <p class="sec-label">FLOW</p>
+    <h2 class="sec-title">施術の<span class="accent">流れ</span></h2>
+    <div class="sec-lead"></div>
+    <ol class="flow-list">
+      <li><span class="fn">1</span><b>カウンセリング</b><p><span class="nw">お悩みやご希望を</span><span class="nw">丁寧にお伺いします。</span></p></li>
+      <li><span class="fn">2</span><b>ゆるめる</b><p><span class="nw">デコルテ・首肩・頭皮など</span><span class="nw">緊張をやさしく</span><span class="nw">ほぐします。</span></p></li>
+      <li><span class="fn">3</span><b>フェイシャルケア</b><p><span class="nw">お顔の筋肉にアプローチし、</span><span class="nw">フェイスラインを</span><span class="nw">整えます。</span></p></li>
+      <li><span class="fn">4</span><b>お仕上げ</b><p><span class="nw">お肌を整え、</span><span class="nw">ハリ・ツヤのある印象へ。</span></p></li>
+      <li><span class="fn">5</span><b>アフターケア</b><p><span class="nw">施術後の変化を確認し、</span><span class="nw">日々のケアも</span><span class="nw">ご提案します。</span></p></li>
+    </ol>
+  </div>
+</section>
+
+<!-- プロフィール -->
+<section class="profile">
+  <div class="wrap">
+    <p class="sec-label">PROFILE</p>
+    <h2 class="sec-title">施術者の<span class="accent">ごあいさつ</span></h2>
+    <div class="sec-lead"></div>
+    <div class="prof-card">
+      <div class="prof-img"><img src="images/owner-portrait.jpg" alt="Crebiaオーナー 河池幸子" loading="lazy"></div>
+      <div class="prof-txt">
+        <p class="prof-role">オーナー</p>
+        <p class="prof-name">河池 幸子<span class="ruby">かわいけ さちこ</span></p>
+        <div class="prof-body">
+          <p>23年間、美容部員として多くの女性の肌と美容に向き合ってきました。</p>
+          <p>年齢を重ねる中で感じる肌の変化は、心や身体の状態とも深く関わっています。</p>
+          <p class="close">お一人おひとりに寄り添い、「ゆるめて、めぐらせて、引き上げる」ケアで、これからも自分らしく輝ける毎日をサポートいたします。</p>
+        </div>
+      </div>
+    </div>
+    <div class="space-band">
+      <img src="images/owner.jpg" alt="河池幸子による施術の様子" loading="lazy">
+      <img src="images/room-b.jpg" alt="Crebiaの施術空間" loading="lazy">
+      <img src="images/room-a.jpg" alt="Crebiaのプライベートサロン" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<!-- お客様の声 -->
+<section class="voice">
+  <div class="wrap">
+    <p class="sec-label">VOICE</p>
+    <h2 class="sec-title">お客様の<span class="accent">声</span></h2>
+    <div class="sec-lead">施術を受けてくださった方から、うれしいお言葉をいただいています。</div>
+    <div class="voice-grid">
+      <div class="voice-card">
+        <img src="images/voice-1.jpg" alt="お客様の声1" loading="lazy">
+        <p class="voice-cap"><b>短時間で効果が！</b>肌が明るくなって、あごのラインが上がったのがうれしい。リラックス効果もあって最高でした。</p>
+      </div>
+      <div class="voice-card">
+        <img src="images/voice-3.jpg" alt="お客様の声2" loading="lazy">
+        <p class="voice-cap"><b>いつもながらの魔法の手♡</b>気持ちよかった〜！メイクもしてもらって、これからおでかけです。</p>
+      </div>
+      <div class="voice-card">
+        <img src="images/voice-2.jpg" alt="お客様の声3" loading="lazy">
+        <p class="voice-cap"><b>オールハンドが本当に気持ちいい</b>ラベンダーのアロマオイルでデコルテトリートメント、最高です♡</p>
+      </div>
+    </div>
+    <p class="ba-note"><span class="nw">※個人の感想です。</span><span class="nw">効果の感じ方には</span><span class="nw">個人差があります。</span></p>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq">
+  <div class="wrap">
+    <p class="sec-label">Q & A</p>
+    <h2 class="sec-title">よくある<span class="accent">ご質問</span></h2>
+    <div class="sec-lead"></div>
+    <div class="faq-list">
+      <details class="faq-item">
+        <summary class="faq-q"><span class="qm">Q</span><span>エステが初めてでも大丈夫ですか？</span><span class="arrow">▼</span></summary>
+        <div class="faq-a">はい、ご安心ください。Crebiaにご来店される方の多くは、エステが初めてという方ばかりです。資生堂美容部員として23年間、多くのお客様の肌に触れてきた私が、一人ひとりの肌状態やお悩みに合わせて丁寧にカウンセリングを行い、最適なケアをご提案いたします。<b>無理にコースを決めたり、高額な商品を勧めたりすることは一切ございません</b>ので、どうぞご安心ください。</div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q"><span class="qm">Q</span><span>無理な勧誘や化粧品の購入はありませんか？</span><span class="arrow">▼</span></summary>
+        <div class="faq-a">いいえ、<b>無理な勧誘は一切ございません。</b>お客様に心からリラックスして施術を受けていただきたいので、高額なコースの押し売りや化粧品の販売は行いません。幸子自身、過去にエステで嫌な思いをした経験があるからこそ、お客様の気持ちに寄り添い、本当に必要なケアだけをご提案いたします。どうぞご安心してお越しください。</div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q"><span class="qm">Q</span><span>どのコースを選べばいいか分かりません。</span><span class="arrow">▼</span></summary>
+        <div class="faq-a">ご安心ください。お客様のお悩みや肌状態に合わせて、最適なコースをご提案いたします。初めての方には、お顔とデコルテを集中的にケアする「すっきり小顔ケア（60分）」か、全身のめぐりも整えたい方に人気の「たるみ小顔リフトアップ（100分）」をおすすめしています。カウンセリングでじっくりお話を伺い、一緒にぴったりのコースを見つけていきましょう。</div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q"><span class="qm">Q</span><span>メイクをして行っても大丈夫ですか？</span><span class="arrow">▼</span></summary>
+        <div class="faq-a">はい、メイクをしたままご来店いただいて大丈夫です。施術の際に、お肌に優しいクレンジングで丁寧にメイクオフいたしますので、お気軽にお越しください。</div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q"><span class="qm">Q</span><span>どんな服装で行けばいいですか？</span><span class="arrow">▼</span></summary>
+        <div class="faq-a">普段着でお気軽にお越しください。お着替えをご用意しておりますので、リラックスできる服装で大丈夫です。施術に影響がある場合は、必要に応じてお着替えをご案内させていただきます。</div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q"><span class="qm">Q</span><span>サロンはどこにありますか？</span><span class="arrow">▼</span></summary>
+        <div class="faq-a">Crebiaは久屋大通駅から徒歩1〜2分の場所にございます。<b>女性専用の完全予約制プライベートサロン</b>ですので、周りを気にせずゆったりとお過ごしいただけます。ご予約確定後に詳しいアクセスをご案内いたします。</div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q"><span class="qm">Q</span><span>出張エステもお願いできますか？</span><span class="arrow">▼</span></summary>
+        <div class="faq-a">はい、出張エステも承っております。ご自宅やご指定の場所までお伺いし、サロンと変わらないクオリティの施術をご提供いたします。小さなお子様がいらっしゃる方や、サロンまで足を運ぶのが難しい方にも大変喜ばれております。ご希望の方はお気軽にご相談ください。</div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q"><span class="qm">Q</span><span>1回でも受けられますか？</span><span class="arrow">▼</span></summary>
+        <div class="faq-a">はい、もちろん1回からでもご利用いただけます。まずは初回体験でCrebiaの施術をご体感ください。継続的なケアが必要な場合はご提案させていただきますが、<b>ご希望がない限り無理に回数券などを勧めることはございません。</b></div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- 最後のCTA -->
+<section class="final">
+  <div class="wrap final-inner">
+    <h2>歳を重ねても、<br><span class="nw">自分らしく</span><span class="nw"><span class="accent">笑顔</span>でいられる</span><span class="nw">未来へ。</span></h2>
+    <div class="hero-cta">
+      <a href="https://tol-app.jp/s/p2yodhukjyn1ykac7gkn" class="btn-main" target="_blank" rel="noopener">
+        初回体験を予約する
+      </a>
+      <a href="https://lin.ee/7zFPMXY" class="btn-line" target="_blank" rel="noopener">LINEで相談する</a>
+    </div>
+  </div>
+</section>
+
+<!-- フッター -->
+<footer>
+  <div class="wrap">
+    <div class="ft-logo">Crebia</div>
+    <p class="ft-tag">40代からの たるみ小顔専門エステ</p>
+    <p class="ft-info">
+      名古屋・久屋大通駅 徒歩1分<span class="sep">|</span>女性専用・完全予約制<br>
+      名古屋市内・近郊　出張エステ対応
+    </p>
+    <p class="ft-cta-label">ご予約・お問い合わせ</p>
+    <div class="ft-links">
+      <a href="https://tol-app.jp/s/p2yodhukjyn1ykac7gkn" class="ft-link book" target="_blank" rel="noopener">ご予約ページはこちら</a>
+    </div>
+    <div class="ft-links ft-links-sub">
+      <a href="https://lin.ee/7zFPMXY" class="ft-link" target="_blank" rel="noopener">LINE公式アカウント</a>
+      <a href="#" class="ft-link" target="_blank" rel="noopener">Instagram</a>
+    </div>
+    <p class="ft-copy">© Crebia（クレビア）All Rights Reserved.</p>
+  </div>
+</footer>
+
+<!-- 追従ボタン（スマホ） -->
+<div class="float-cta">
+  <a href="https://tol-app.jp/s/p2yodhukjyn1ykac7gkn" class="fbook" target="_blank" rel="noopener">40分5,500円で予約</a>
+  <a href="https://lin.ee/7zFPMXY" class="fline" target="_blank" rel="noopener">LINE相談</a>
+</div>
+
+</body>
+</html>
